@@ -1,0 +1,21 @@
+read;
+store 42;
+read;
+add #1;
+sub 42;
+jumz 9;
+add 42;
+write ;
+jump 2;
+load #0
+write;
+read;
+add #1;
+write;
+read;
+add #1;
+jumz 20;
+sub #1
+write;
+jump 14;
+STOP;

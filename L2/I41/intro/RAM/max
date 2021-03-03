@@ -1,0 +1,16 @@
+load #1;
+store 43;
+read;
+store 42;
+read;
+add 43;
+jumz 13;
+sub 43;
+sub 42;
+jumg 12;
+add 42;
+store 42;
+jump 4;
+load 42;
+write
+STOP;
