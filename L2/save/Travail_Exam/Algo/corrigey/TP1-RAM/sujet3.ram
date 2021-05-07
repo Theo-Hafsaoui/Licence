@@ -1,0 +1,25 @@
+LOAD #0;
+STORE 1; R[1] = min_pos
+STORE 4; R[4] = cur_pos
+READ;
+STORE 2; R[2] = min 
+NOP
+NOP
+READ; R[X]
+INC 4;
+JUMZ 19; Y  FINISHED
+STORE 3; R[3] current
+SUB 2;
+JUML 14; B
+JUMP 7; X
+LOAD 3; R[B] current
+STORE 2; min = current
+LOAD 4; 
+STORE 1; min_pos = cur_pos
+JUMP 7; X
+LOAD 2 ; R[Y]
+WRITE 
+LOAD 1;
+WRITE
+STOP
+ 

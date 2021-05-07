@@ -1,0 +1,67 @@
+
+/* Style du taquin */
+
+table.anime{
+border-collapse:collapse;
+margin:auto;
+border-style:solid;
+border-width:3px;
+border-top-color:#888;
+border-left-color:#666;
+border-bottom-color:#444;
+border-right-color:#333;
+background-color:inherit;
+margin-bottom:1em;
+vertical-align:top;
+left-margin:auto;
+right-margin:auto;
+min-width:146px;
+max-width:146px;
+min-height:146px;
+max-height:146px;
+}
+
+.boite{
+   border:0px;
+   background:inherit;
+}
+
+.piece {
+    margin:0px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    font-size: 90%;
+    font-weight: bold;
+    font-family:arial;
+}
+
+.oui {
+    background-color:#484864;
+    color:#FF0;
+    border-radius: 6px;
+    border-top: 2px #CCC solid;
+    border-right: 2px #666 solid;
+    border-bottom: 2px #333 solid;
+    border-left: 2px #999 solid;
+}
+
+.fix{
+    color:#AAA;
+}
+
+.non {
+    background-color: #242432;
+    color: #242432;
+    border-radius: 6px;
+    border-top: 0px #333 solid;
+    border-right: 0px #999 solid;
+    border-bottom: 0px #CCC solid;
+    border-left: 0px #666 solid;
+}
+
+#controle {
+    text-align: center;
+    margin: 5px;
+}

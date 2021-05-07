@@ -1,0 +1,40 @@
+LOAD #1; 
+STORE 300; R[300] = curr_adresse = 1
+READ
+STORE @300; R[curr_adresse]
+INC 300; curr_adresse++
+JUML 7;
+JUMP 2;
+DEC 300;
+DEC 300; R[300] = max_adresse_valid_numbers
+NOP
+NOP
+NOP
+LOAD #1
+STORE 301; R[301] = i = 1
+LOAD @301; load r[i]
+JUML 39 ; if r[i] is negative loop finished jump to print;
+LOAD 301; load i
+STORE 302; j = i 
+STORE 303; min_j = j 
+INC 302; j++ 
+LOAD @302; r[j]
+JUML 30; if r[j] is negative j > len(l) loop finished jump to permute
+SUB @303; r[j] - r[min_j]
+JUML 26; if r[j] - r[min_j] is negative i.e r[min_j] > r[j] jump to change min_j
+JUMP 19; jump to j++
+NOP 
+LOAD 302; CHANGE - load j 
+STORE 303; min_j = j
+JUMP 19; jump to j++
+NOP 
+LOAD @301; PERMUTE load r[i] 
+STORE 304; temp = r[i]
+LOAD @303; load r[min_j]
+WRITE;
+STORE @301; store r[i] <- r[min_j]
+LOAD 304; load temp <- r[i]
+STORE @303; store r[min_j] <- temp
+INC 301; i++
+JUMP 14 ; 
+STOP;

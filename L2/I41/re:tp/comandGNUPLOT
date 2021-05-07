@@ -1,0 +1,2 @@
+TP1:
+	plot "./Centsiracus.txt" with lines

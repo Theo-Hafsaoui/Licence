@@ -15,3 +15,8 @@ write
 load 43
 write
 STOP;
+
+load 42
+write
+load 43
+write
