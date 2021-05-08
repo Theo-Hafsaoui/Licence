@@ -1,0 +1,35 @@
+root:x:0:0::/root:/usr/bin/fish
+nobody:x:65534:65534:Nobody:/:/sbin/nologin
+dbus:x:81:81:System Message Bus:/:/sbin/nologin
+bin:x:1:1::/:/sbin/nologin
+daemon:x:2:2::/:/sbin/nologin
+mail:x:8:12::/var/spool/mail:/sbin/nologin
+ftp:x:14:11::/srv/ftp:/sbin/nologin
+http:x:33:33::/srv/http:/sbin/nologin
+systemd-journal-remote:x:982:982:systemd Journal Remote:/:/sbin/nologin
+systemd-coredump:x:981:981:systemd Core Dumper:/:/sbin/nologin
+uuidd:x:68:68::/:/sbin/nologin
+dnsmasq:x:980:980:dnsmasq daemon:/:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+avahi:x:979:979:Avahi mDNS/DNS-SD daemon:/:/sbin/nologin
+colord:x:978:978:Color management daemon:/var/lib/colord:/sbin/nologin
+cups:x:209:209:cups helper user:/:/sbin/nologin
+deluge:x:977:977:Deluge BitTorrent daemon:/srv/deluge:/sbin/nologin
+git:x:976:976:git daemon user:/:/usr/bin/git-shell
+lightdm:x:620:620:Light Display Manager:/var/lib/lightdm:/sbin/nologin
+nm-openconnect:x:975:975:NetworkManager OpenConnect:/:/sbin/nologin
+nm-openvpn:x:974:974:NetworkManager OpenVPN:/:/sbin/nologin
+ntp:x:87:87:Network Time Protocol:/var/lib/ntp:/bin/false
+polkitd:x:102:102:PolicyKit daemon:/:/sbin/nologin
+usbmux:x:140:140:usbmux user:/:/sbin/nologin
+hafsaoui:x:1000:1000:hafsaoui:/home/hafsaoui:/usr/bin/fish
+systemd-network:x:973:973:systemd Network Management:/:/usr/bin/nologin
+systemd-resolve:x:972:972:systemd Resolver:/:/usr/bin/nologin
+systemd-timesync:x:971:971:systemd Time Synchronization:/:/usr/bin/nologin
+geoclue:x:970:970:Geoinformation service:/var/lib/geoclue:/usr/bin/nologin
+rtkit:x:133:133:RealtimeKit:/proc:/usr/bin/nologin
+tor:x:43:43::/var/lib/tor:/usr/bin/nologin
+dhcpcd:x:969:969:dhcpcd privilege separation:/var/lib/dhcpcd:/usr/bin/nologin
+postgres:x:968:968:PostgreSQL user:/var/lib/postgres:/bin/bash
+openvpn:x:967:967:OpenVPN:/:/usr/bin/nologin
+saned:x:966:966:SANE daemon user:/:/usr/bin/nologin
