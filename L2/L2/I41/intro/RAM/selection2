@@ -1,0 +1,36 @@
+load #50;debut mise en memoire adresse 50 jusqu'a 50+#n
+store 42;
+store 43;
+read;
+jumz 8;
+store @43;
+inc 43;
+jump 3;
+load #50;
+store 43;fin
+load @43;
+store 30;
+store 32; 32 min
+inc 43;
+load @43;
+jumz 24; si =0 saute vers la fin
+sub 32;
+jumg 22;
+add 32;
+store 32;
+load 43;
+store 30;
+jump 13;
+load #255;
+store @30;
+load 32;
+sub #255
+jumz 31;
+add #255
+write;
+jump 8;
+STOP
+
+
+
+

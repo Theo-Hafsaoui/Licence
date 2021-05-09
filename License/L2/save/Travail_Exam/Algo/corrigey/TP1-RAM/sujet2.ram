@@ -1,0 +1,18 @@
+LOAD #1;  
+STORE 2; res in R[2]
+READ
+JUML 12; error jump R[Y]
+JUMZ 15; num == 0 jump R[B]
+STORE 1; num in R[1]
+MUL 2; res * num
+STORE 2; R[2] = res
+DEC 1; num--
+LOAD 1; CO = num
+JUMZ 15; if num == 0 jump else continue
+JUMP 6; jump 6
+LOAD #-1; R[Y] 
+WRITE
+STOP 
+LOAD 2; B - CO = res 
+WRITE 
+STOP

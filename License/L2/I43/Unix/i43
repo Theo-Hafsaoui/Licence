@@ -1,0 +1,15 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Note i43
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diferente type of <C>:
+	<C-d>fin de lecture
+	<C-c> fin commande
+	<C-z> stoppe la commande
+
+
+$path est une substitution
+> ecrit dans la sortie standart(ecrase le fichier)
+>> ecrit en append
+
+rm:
+Touche change la date de creation si le fichier et deja existant.

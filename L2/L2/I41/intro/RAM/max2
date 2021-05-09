@@ -1,0 +1,22 @@
+load #0;
+read;
+store 42; l[42]=a
+read;
+store 43; l[42]=b
+sub 42; b-a
+juml 12;
+load 43
+write
+load 42
+write
+STOP;
+load 42
+write
+load 43
+write
+STOP;
+
+load 42
+write
+load 43
+write

@@ -1,0 +1,21 @@
+load #50;
+store 40;
+read;
+jumz 9;
+store @40
+load 40;
+add #1;
+store 40;
+jump 2;
+store 49;
+load 40;
+sub #1;
+store 40;
+load @40
+jumz 20;
+write;
+load 40;
+sub #1;
+store 40;
+jump 13;
+STOP;
