@@ -1,8 +1,0 @@
-git add .
-
-git pull https://theo-hafsaoui:MDP@github.com/Theo-Hafsaoui/License.git master
-
-git push https://theo-hafsaoui:MDP@github.com/Theo-Hafsaoui/License.git master
-
-
-
