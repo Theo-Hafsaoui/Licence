@@ -31,6 +31,7 @@ int main(int argc, char const *argv[])
 //des valeurs placées sur la ligne de
 //commande en écrivant la fonction tri. 
 /*
+
 void affiche(int *a,int n){
     printf("tab =[");
     for (int i = 0; i < n-1; i++)

@@ -28,8 +28,6 @@ void main(int argc, char ** argv)
     print_array(n, tab1);
     print_array(n, tab2);
     //
-    
-
     // creation of n sons
     int res;
     int tube[2];
