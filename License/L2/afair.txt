@@ -1,7 +1,0 @@
-tp systeme [ex11,12,tp7]
-tp algoA[finir trie,trie par tas]
-tp cryptoA[finir cryptanalise]
-rattraper retard algo[lire cours]
-consolider reseaux
-revision sys
-commencer cyber
