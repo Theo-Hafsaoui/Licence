@@ -1,0 +1,65 @@
+##############################################
+        iiiii    4 4     2222222            #
+          i      4  4          2            #
+          i      44444         2            #
+          i      4       2222222            #
+          i      4       2                  #
+        iiiii    4       2222222            #
+##############################################
+
+1/Config
+	a) ip=10.9.186.151 masque=255.255.248.0
+	b) MAC=64:00:6a:67:21:84
+	c)thafsaoui060@u1-112-11:/home/etudiants/thafsaoui060$ ifconfig | grep lo
+lo        Link encap:Boucle locale  
+	il s'agit du type d'infrastruture physique du reseaux
+
+2/IP.MAC.Nom
+	a)thafsaoui060@u1-112-11:/home/etudiants/thafsaoui060$ arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+sinfo8.univ-tln.fr       ether   00:16:3e:3e:d6:ba   C                     eth0
+10.9.184.1               ether   ec:9b:8b:61:d8:b3   C                     eth0
+
+	b)u1-001-1 ip=10.9.186.1 mac=64:00:6a:66:fe:ad
+	c)etc/localhost -> ce sont des information sur la machine locale(ip/passerelle)
+	 etc/resolv.conf -> il s'agit surement du serveur dns ou bien une particulariter des reseaux univeritaire
+	d)ip google=216.58.211.195 	le nom associer avec l'ip donner est -> lbwebdmz.univ-tln.fr.
+
+3/
+	a)thafsaoui060@u1-112-11:/home/etudiants/thafsaoui060$ route
+Table de routage IP du noyau
+Destination     Passerelle      Genmask         Indic Metric Ref    Use Iface
+default         10.9.184.1      0.0.0.0         UG    0      0        0 eth0
+10.9.184.0      *               255.255.248.0   U     0      0        0 eth0
+10.9.188.0      panda5.univ-tln 255.255.255.0   UG    0      0        0 eth0
+link-local      *               255.255.0.0     U     1000   0        0 eth0
+172.17.0.0      *               255.255.0.0     U     0      0        0 docker0
+	defaut= 10.9.184.1
+
+	b)arp 10.9.184.1->MAC= ec:9b:8b:61:d8:b3
+
+	c)car la table arp et local au reseaux.
+
+
+4/SSH
+
+	a)ssh u1-001-1 si j'avais pus me conecter il m'aurait donner une empreinte de la machine
+	celle ci est unique et m'aurais permis de m'assurer que je me conecte a la bonne machine.
+
+	b)il copy past test.txt de la machine presente  sur la machine distante u1-001 avec comme nom test-bis.txt
+	Concernant la deuxieme commande on recupere de la machine distante un fichier et l'importe sur notre machine
+	
+
+5/Netstat
+	La commande netstat permet d'avoir une vision d'ensemble sur le reseaux.
+	pour afficher en particulier les conection tcp il faut utuliser netstat -t
+	avec cette commande j'obtient:
+Proto Recv-Q Send-Q Adresse locale          Adresse distante        Etat      
+tcp        0      0 u1-112-11.univ-tl:46782 sinfo8.univ-tln.fr:9999 TIME_WAIT  
+tcp        0      0 u1-112-11.univ-tl:46784 sinfo8.univ-tln.fr:9999 TIME_WAIT  
+tcp        0      0 u1-112-11.univ-tln.:807 nasetu:nfs              ESTABLISHED
+	les deux premier ligne indique qu'il se prepare a la fermeture et attend les packet
+	la premier que une conexion est etablie, rien ne se passe.
+	j'imagine que pendant le tp d'autres session ou bien update sont en cours.
+	
+

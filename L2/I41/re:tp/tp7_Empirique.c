@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+typedef unsigned int uint;
+
 void affiche(int *a,int n){
     printf("liste =[");
     for (int i = 0; i < n-1; i++)
@@ -15,26 +17,38 @@ void affiche(int *a,int n){
     printf("%d]\n",a[n-1]);
 }
 
+void swap(uint *arr, uint i, uint j) {//youssef
+    uint tmp;
+    tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+}
+
+uint fact(int n){
+    if (n==0)
+    {
+        return 1;
+    }
+    else
+        return(n*fact(n-1));
+}
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Renvoie une permutation jusqua n
-int *permute(int *l,int n){
-    int *save=(int*)malloc(n * sizeof(int));
+
+uint *GenPerm(uint n){
+    uint *t=(uint*) calloc(n,sizeof(uint));
+    srand(time(NULL));int idx;
     for (int i = 0; i < n; i++)
     {
-        save[i]=l[i];
+        t[i]=i;
     }
-    int i;int i2;int temps;
-    srand(time(NULL));
-    i=rand()%n;
-    i2=rand()%n;
-    while (i2<=i)
+    for (int i = 0; i < n; i++)
     {
-        i2=rand()%n;
+        idx=rand()%n;
+        swap(t,i,idx);
     }
-    temps=l[i];
-    l[i]=l[i2];
-    l[i2]=temps;
-    return save;
+    return t;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -114,4 +128,8 @@ int main(int argc, char const *argv[])
     //affiche(l,5);
     //printf("cpt=%d\n",cpt);
     //return 0;
+    //uint *t=GenPerm(2);
+    //affiche(t,2);
+    //int n =fact(5);
+    //printf("n=%d\n",n);
 }

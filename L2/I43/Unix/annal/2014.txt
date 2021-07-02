@@ -1,0 +1,23 @@
+q1/il s'agit du cardinal du produit cartesien de lensemble {a..h} {1..8}, cad 8*8=64
+
+q2/$0 premier valeur de set ou du parametre dans un scripte
+
+q3/shell appel systeme c jeux fichier
+
+q4/ritchier et thompson
+
+q5/graphica; user interface
+
+q6/pipe normale link repertoir bloc serie
+
+q7/ /bin/passwd
+
+q8/pipe et redirectio
+
+q9/find ne support les esspace
+
+q10/open et un apeel systeme fopen une foncion en c
+
+q11/cherche les lien commencant par s dans /bin
+
+q12/

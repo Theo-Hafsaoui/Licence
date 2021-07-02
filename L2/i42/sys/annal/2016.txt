@@ -1,0 +1,41 @@
+ex1:
+	qst1/Oui un nouveux processus est cree
+
+	qst2/Non il remplace
+
+	qst3/c
+
+	qst4/hitler
+
+ex2:
+	Pour que la struture soit compatible il faut que le premier chant soit un long et ensuite
+	pas des pointeur.
+
+ex3:
+	pere de pid initiale : 123
+	boucle 1 pid 123
+	boucle 1 pid 124
+	echo fils
+
+	------
+	
+	pere de pid initiale : 123
+	boucle 1 pid 123
+	boucle 1 pid 124
+	boucle 2 pid 123
+	boucle 2 pid 124
+	boucle 2 pid 125
+	boucle 2 pid 126
+	echo fils
+	echo fils
+
+	la dernier instruction sert a attendre que tout les fils se termine
+
+ex4:
+	p2 et p3 sont en interblocage
+
+ex5:
+
+
+	
+

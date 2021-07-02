@@ -1,0 +1,17 @@
+ex1:
+	qst1/Oui un nouveux processus est cree
+
+	qst2/Non il remplace
+
+	qst3/c
+
+	qst4/hitler
+
+ex2:
+	Pour que la struture soit compatible il faut que le premier chant soit un long et ensuite
+	pas des pointeur.
+
+ex3:
+
+	
+

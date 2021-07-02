@@ -16,7 +16,6 @@ int main(void)
     int ch;
     FILE *f;
     f = fopen("mes_caracteres.txt", "w");
- 
     if(f==NULL){
         printf("Erreur lors de l'ouverture d'un fichier");
         exit(1);

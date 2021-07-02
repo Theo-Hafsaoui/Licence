@@ -1,0 +1,13 @@
+
+load #2;
+store 42;puiss=2
+load #0;
+store 43;s=0
+read;
+jumz a;si read=0 stop
+store44;i=read
+dec 44;
+load 44;
+jumz 4;
+load 42
+

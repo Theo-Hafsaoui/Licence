@@ -1,0 +1,99 @@
+Semaphore:
+	ex1:
+		s1=1
+		s2=1
+		s3=0
+		P1{
+			p(s1)
+			|
+			|
+			v(s2)
+
+		P2{
+			p(s2)
+			|
+			|
+			v(s1)
+		P3{
+			p(s1)
+			p(s2)
+			|
+			|
+			|
+			v(s1)
+			v(s2)
+
+	ex2:
+		s1=1
+		s2=1
+		sa=0
+		vide=n
+		plein=0
+		rc{
+			p(s1)
+			|
+			|
+			v(sa)
+
+		bo{
+			p(s2)
+			|
+			|
+			v(sa)
+		sa{
+			p(sa)
+			p(sa)
+			|
+			|
+			p(vide)
+			v(plein)
+		em{
+			p(pleine)
+			|
+			|
+			v(vide)
+
+	ex3:
+
+		plein1=0
+		mutex1=1
+		mutex2=1
+		vide1=n
+		plein2=0
+		vide2=n
+		po{
+			read()
+			encrypte()
+			p(vide1)
+			p(mutex1)
+			v(plein1)
+			v(mutex1)
+		p1{
+			p(plein1)
+			p(mutex1)
+			v(vide1)
+			v(mutex1)
+			p(vide2)
+			p(mutex2)
+			v(plein2)
+			v(mutex2)
+			
+		p2{
+			p(plein2)
+			Envoyer()
+			v(vide2)
+			|
+			v(vide2)
+
+Monit
+
+ex4:
+	EnterSN{
+		if pns>0:
+			wlistsn++
+			wait()
+		else:
+			psn++
+	et respectivement			
+	sortSN{
+		psn--

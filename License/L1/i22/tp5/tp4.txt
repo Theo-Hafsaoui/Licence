@@ -1,8 +1,0 @@
-#################################
-# TP 5                          #
-# Codage et fichier binaire     #
-#################################
-Magic number/
-    1.
-Utulisation de OD/
-    1.

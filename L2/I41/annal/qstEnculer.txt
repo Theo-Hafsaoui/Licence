@@ -1,0 +1,18 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~  iii   4444  11                           ~
+~   i   4   4   1                           ~
+~   i    4444   1                           ~
+~   i       4   1                           ~
+~  iii      4   1                           ~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+heap sort:
+	A.P.O= Arbre partiellement ordoner
+	Le nombre de noeud de noeud a la profondeur p et de p**q ou q est l'ariter, plus generalement on parleras d'arbre de comparaison donc d'ariter 2
+	def de tas: IL s'agit d'un tableau dont 'abre associer est APO
+	stable
+merge sort :
+	le trie fuion est satble
+quick sort:
+	
+	
