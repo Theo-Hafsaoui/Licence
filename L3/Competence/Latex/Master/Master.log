@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.23)  19 JUL 2021 13:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.23)  21 JUL 2021 15:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -504,23 +504,153 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--141
 
  []
 
-[5] (/home/hafsaoui/Documents/License GIT/L3/Competence/Latex/Master/Master.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
+
+ []
+
+
+Overfull \hbox (28.42142pt too wide) in paragraph at lines 151--154
+\OT1/cmr/m/n/10.95 s'adapter aux out-ils et m^^Sethodes, actuels et fu-turs, du m^^Setier d'informaticien. 
+ []
+
+
+Overfull \hbox (3.5404pt too wide) in paragraph at lines 151--154
+\OT1/cmr/m/n/10.95 Trois par-cours, en sec-onde ann^^See, per-me-t-tent d'enrichir les comp^^Setences
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 176--179
+
+ []
+
+
+Overfull \hbox (14.6426pt too wide) in paragraph at lines 179--182
+\OT1/cmr/m/n/10.95 d'exercer un m^^Setier d'ing^^Senieur d'^^Setudes ou d'ing^^Senieur en d^^Seveloppement,
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 194--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--207
+
+ []
+
+
+Overfull \hbox (25.25792pt too wide) in paragraph at lines 216--217
+[]\OT1/cmr/m/n/10.95 Parcours Comp^^Setences compl^^Sementaires dans les ser-vices du num^^Serique 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--222
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 230--233
+
+ []
+
+
+Overfull \hbox (7.43376pt too wide) in paragraph at lines 233--239
+\OT1/cmr/m/n/10.95 plus sp^^Secifiques li^^Sees aux tech-nolo-gies de con-cep-tion et de d^^Seveloppement
+ []
+
+
+Overfull \hbox (18.04927pt too wide) in paragraph at lines 233--239
+\OT1/cmr/m/n/10.95 prise en compte de l'exp^^Serience util-isa-teur, l'optimisation du r^^Sef^^Serencement
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--239
+
+ []
+
+
+Overfull \hbox (31.25012pt too wide) in paragraph at lines 239--242
+\OT1/cmr/m/n/10.95 doc-torat est en-vis-age-able, en par-ti-c-ulier au LIM, le lab-o-ra-toire d'informatique
+ []
+
+[8]
+Overfull \hbox (79.18678pt too wide) in paragraph at lines 245--246
+[]\OT1/cmr/m/n/10.95 sp^^Secialit^^Se Ser-vices In-for-ma-tiques Con-nect^^Ses et S^^Securis^^Ses : $[]$. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--250
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--260
+
+ []
+
+
+Overfull \hbox (3.96628pt too wide) in paragraph at lines 260--263
+\OT1/cmr/m/n/10.95 seigne-ments sp^^Secialis^^Ses en fonc-tion du pro-jet pro-fes-sion-nel de l'^^Setudiant. 
+ []
+
+
+Overfull \hbox (9.89755pt too wide) in paragraph at lines 265--266
+[]\OT1/cmr/m/n/10.95 S^^Securit^^Se In-for-ma-tique, R^^Seseaux et Ar-chi-tec-tures Virtuelles (SIRAV) 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
+
+ []
+
+
+Overfull \hbox (9.80626pt too wide) in paragraph at lines 273--276
+\OT1/cmr/m/n/10.95 par-cours visent ^^Ra for-mer des cadres en in-for-ma-tique avec des comp^^Setences
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 283--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--292
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--305
+
+ []
+
+[10] [11] (/home/hafsaoui/Documents/License GIT/L3/Competence/Latex/Master/Master.aux)
 Package rerunfilecheck Info: File `Master.out' has not changed.
 (rerunfilecheck)             Checksum: 4CCA8C27CF16A557B3E4296F309A63A8;171.
  ) 
 Here is how much of TeX's memory you used:
- 12344 strings out of 478994
- 173172 string characters out of 5864751
- 543331 words of memory out of 5000000
- 29689 multiletter control sequences out of 15000+600000
+ 12352 strings out of 478994
+ 173226 string characters out of 5864751
+ 543333 words of memory out of 5000000
+ 29691 multiletter control sequences out of 15000+600000
  415021 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,6n,88p,675b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,6n,88p,985b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on "/home/hafsaoui/Documents/License GIT/L3/Competence/Latex/Master/Master.pdf" (5 pages, 82056 bytes).
+Output written on "/home/hafsaoui/Documents/License GIT/L3/Competence/Latex/Master/Master.pdf" (11 pages, 98278 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
