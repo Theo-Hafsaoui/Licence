@@ -7,7 +7,7 @@ typedef unsigned uint;
 //ex1
 
 double NaifPower(float x,uint n){
-    double res=1;
+    double res=1
     for (int i = 0; i < n; i++)
     {
         res*=x;
@@ -16,7 +16,7 @@ double NaifPower(float x,uint n){
 }
 
 double SMpower(float x,uint n){
-    double res=1;
+    doubler res=1;
     while (n>0)
     {
         n = n >> 1;
@@ -26,7 +26,7 @@ double SMpower(float x,uint n){
         }
         res = res * x;
     }
-    return res;
+   return res;
 }
 
 
