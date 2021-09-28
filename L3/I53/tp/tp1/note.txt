@@ -1,0 +1,75 @@
+ex1
+dis of5+5
+  1           0 LOAD_CONST               0 (10)
+              2 RETURN_VALUE
+None
+dis ofx+y 
+  1           0 LOAD_NAME                0 (x)
+              2 LOAD_NAME                1 (y)
+              4 BINARY_ADD
+              6 RETURN_VALUE
+None
+dis ofx-y
+  1           0 LOAD_NAME                0 (x)
+              2 LOAD_NAME                1 (y)
+              4 BINARY_SUBTRACT
+              6 RETURN_VALUE
+None
+dis ofx**y
+  1           0 LOAD_NAME                0 (x)
+              2 LOAD_NAME                1 (y)
+              4 BINARY_POWER
+              6 RETURN_VALUE
+None
+dis ofx*y
+  1           0 LOAD_NAME                0 (x)
+              2 LOAD_NAME                1 (y)
+              4 BINARY_MULTIPLY
+              6 RETURN_VALUE
+None
+dis ofx%y
+  1           0 LOAD_NAME                0 (x)
+              2 LOAD_NAME                1 (y)
+              4 BINARY_MODULO
+              6 RETURN_VALUE
+None
+dis ofx/y
+  1           0 LOAD_NAME                0 (x)
+              2 LOAD_NAME                1 (y)
+              4 BINARY_TRUE_DIVIDE
+              6 RETURN_VALUE
+None
+dis ofx//y
+  1           0 LOAD_NAME                0 (x)
+              2 LOAD_NAME                1 (y)
+              4 BINARY_FLOOR_DIVIDE
+              6 RETURN_VALUE
+None
+dis ofint(5.4)
+  1           0 LOAD_NAME                0 (int)
+              2 LOAD_CONST               0 (5.4)
+              4 CALL_FUNCTION            1
+              6 RETURN_VALUE
+None
+dis of1+a
+  1           0 LOAD_CONST               0 (1)
+              2 LOAD_NAME                0 (a)
+              4 BINARY_ADD
+              6 RETURN_VALUE
+None
+dis of    
+  1           0 LOAD_CONST               0 (None)
+              2 RETURN_VALUE
+None
+dis ofl=[5,4,3,2]
+  1           0 LOAD_CONST               0 (5)
+              2 LOAD_CONST               1 (4)
+              4 LOAD_CONST               2 (3)
+              6 LOAD_CONST               3 (2)
+              8 BUILD_LIST               4
+             10 STORE_NAME               0 (l)
+             12 LOAD_CONST               4 (None)
+             14 RETURN_VALUE
+None
+ex2
+
