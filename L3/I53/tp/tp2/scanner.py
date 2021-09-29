@@ -18,7 +18,7 @@ OP --> + | - | * | /
 PO  --> (
 PF  --> )
 '''
-def scanner(s):
+def scan(s):
     l = []
     """Convertit la chaine de caracteres <s> en une liste d'unités
     léxicales de la forme (<type>, <valeur>). Retourne None en cas
