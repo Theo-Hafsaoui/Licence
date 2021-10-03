@@ -7,7 +7,7 @@ Ex1:
     Expr→Expr+Term|Expr-Term|Term
     Term→digit
     Todo mettre le truck correct
-"""
+#ex2 et 3
 i=0
 
 def expr(ch):
@@ -40,6 +40,65 @@ def term(ch):
 	  return True
   else:
     return False
+"""
+#a=sc.scan('5*5+3+4')
+#print(expr(a))
+"""
+Exp -> Terme Reste_E
+Reste_E -> + Terme Reste_E | - Terme Reste_E
+Terme -> Facteur Reste_T
+Reste_T -> * Facteur Reste_T | / Facteur Reste_T
+fact -> digit | ( expr )
+"""
+i=0
+def expr(ch):
+  global i
+  if term(ch) and rest_e(ch):
+    return True
+  else:
+    print("Erreur syntax at:",ch[i])
+    return False
 
-a=sc.scan('5+2+3')
+def term(ch):
+  return (fact(ch) and rest_t(ch))
+
+def rest_t(ch):
+  global i
+  if (i>=len(ch)-1 or(ch[i][1]in("+","-",")")))and not (i==len(ch)-1 and ch[i][0]=="OP"):
+    return True
+  elif ch[i][1]=='*' or ch[i][1]=='/':
+    i+=1
+    if fact(ch):
+      if rest_t(ch):
+        return True
+  return False
+
+def rest_e(ch): 
+  global i
+  if i>=len(ch)-1 or(ch[i][1]in(")")):
+    return True
+  if ch[i][1]=='+' or ch[i][1]=='-':
+    i+=1
+    if term(ch):
+      if rest_e(ch):
+        return True
+  return False
+
+def fact(ch):
+  global i
+  if i==len(ch)-1 and (ch[i][0]in("NB","PF")):
+    return True
+  if ch[i][0]=='NB':
+    i+=1
+    return True 
+  elif ch[i][0]=='PO':
+    i+=1
+    if expr(ch):
+      if ch[i][0]=='PF':
+        i+=1
+        return True
+  return False
+
+#############################################
+a=sc.scan('5*5+4')
 print(expr(a))
