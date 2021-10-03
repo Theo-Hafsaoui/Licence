@@ -1,4 +1,4 @@
 prout:
 	python3 Parser.py
-scaner:
+scan:
 	python3 scanner.py

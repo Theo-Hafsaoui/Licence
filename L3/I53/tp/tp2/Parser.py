@@ -65,8 +65,10 @@ def term(ch):
 def rest_t(ch):
   global i
   if (i>=len(ch)-1 or(ch[i][1]in("+","-",")")))and not (i==len(ch)-1 and ch[i][0]=="OP"):
+    print(ch[i][1], end="", flush=True)
     return True
   elif ch[i][1]=='*' or ch[i][1]=='/':
+    print(ch[i][1], end="", flush=True)
     i+=1
     if fact(ch):
       if rest_t(ch):
@@ -79,6 +81,7 @@ def rest_e(ch):
     return True
   if ch[i][1]=='+' or ch[i][1]=='-':
     i+=1
+    print(ch[i-1][1], end="", flush=True)
     if term(ch):
       if rest_e(ch):
         return True
@@ -89,6 +92,7 @@ def fact(ch):
   if i==len(ch)-1 and (ch[i][0]in("NB","PF")):
     return True
   if ch[i][0]=='NB':
+    print(ch[i][1], end="", flush=True)
     i+=1
     return True 
   elif ch[i][0]=='PO':
@@ -101,4 +105,4 @@ def fact(ch):
 
 #############################################
 a=sc.scan('5*5+4')
-print(expr(a))
+(expr(a))

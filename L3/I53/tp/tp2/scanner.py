@@ -29,9 +29,10 @@ def scan(s):
     for ch in s:
         if(ch.isnumeric()):
             if len(l)>0 and l[-1][0]=="NB":
-                l[-1][1]=str(l[-1][1])
-                l[-1][1].append(ch)
-                l[-1][1]=int(l[-1][1])
+                temp=str(l[-1][1])
+                temp=temp+(ch)
+                l=l[:-1]
+                l.append(("NB",temp))
             else:
                 l.append(("NB",int(ch)))
         elif(ch in dic):
@@ -43,7 +44,6 @@ def scan(s):
             return(-1)
         i+=1
     return l
-print(scan("52+4"))
 """
 if __name__ == '__main__':
     tests = [('123+-',[('NB',1),('NB',2),('NB',3),('OP','+'),('OP','-')]),
