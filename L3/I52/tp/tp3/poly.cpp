@@ -1,5 +1,5 @@
-#include <iostream>
 #include "poly.h"
+#include <iostream>
 using namespace std;
 
 poly::poly(){
@@ -30,4 +30,3 @@ void poly::print(){
 	for(int i=0;i<ord;i++){
 		cout<<"t["<<i<<"]="<<t[i]<<endl;}
 		}
-

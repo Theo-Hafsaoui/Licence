@@ -12,6 +12,12 @@ class complex {
 		void print();
 		int getRe();
 		int getIm();
+		void sum(const complex&);
+		void sum1(const complex&);
+		complex sum2(const complex&);
+		complex sum3(const complex&);
+		complex& sum4(const complex&);
+		bool identical(const complex&);
 };
 
 
