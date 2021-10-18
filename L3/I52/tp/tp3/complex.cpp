@@ -5,25 +5,25 @@ using namespace std;
 //complex F_x;
 
 complex::complex(){
-	cerr<<"Default constructor"<<endl;
+	//cerr<<"Default constructor"<<endl;
 	a=0;
 	b=0;
 }
 
 complex::complex(int x,int y){
-	cerr<<"Parameter constructor"<<endl;
+	//cerr<<"Parameter constructor"<<endl;
 	a=x;
 	b=y;
 }	
 
 complex::complex(const complex& x){
-	cerr<<"Copy constructor"<<endl;
+	//cerr<<"Copy constructor"<<endl;
 	a=x.a;
 	b=x.b;
 }
 
 complex::~complex(){
-	cerr<<"Destruction !!!!"<<endl;
+	//cerr<<"Destruction !!!!"<<endl;
 }
 
 void complex::print(){
