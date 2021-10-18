@@ -1,9 +1,9 @@
-CC=G++
+CC=g++
 FLAG= -Wall
 OBJ= test.o Personne.o
 
 test.exe: $(OBJ)
-	$(CC) $(FLAG) $^
+	$(CC) $(FLAG) $(OBJ)
 
 test.o: test.cpp Personne.h
 	$(CC) $(FLAG) $<
