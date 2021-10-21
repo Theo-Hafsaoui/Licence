@@ -1,7 +1,15 @@
+#ifndef GRAPH_H
+#define GRAPH_H
+
+
 typedef struct{
-	int nbs;
-	int ** mat;
-	}graph;
+  int n;
+  int **T;
+}graph;
 
-graphe Creat_Graph(int n){
+graph create_graph(int);
+void free_graph(graph);
+graph random_graph(int, float);
 
+
+#endif
