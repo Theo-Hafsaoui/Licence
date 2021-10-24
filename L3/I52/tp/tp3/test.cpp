@@ -40,4 +40,11 @@ int main(){
     //ifstream file("data.txt");
     //Vcomplex arg(file);
     //arg.print();
+    //EX4
+    complex x1(2,2);
+    complex x2(2,2);
+    //complex x3=x1+x2;
+    //complex x3=x2-x1;
+    complex x3=x2/x1;
+    x3.print();
 }

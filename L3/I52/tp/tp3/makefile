@@ -1,7 +1,6 @@
 
 test.exe:test.o complex.o poly.o Vcomplex.o
-	g++  -Wall test.o Vcomplex.o complex.o poly.o -o test.exe 
-	test.exe
+	g++  -Wall test.o Vcomplex.o complex.o poly.o -o test.exe && ./test.exe
 test.o: test.cpp complex.h
 	g++ -c test.cpp
 complex.o:complex.cpp complex.h

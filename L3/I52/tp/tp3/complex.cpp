@@ -71,3 +71,36 @@ complex& complex::sum4(const complex& z)
   b = b + z.b;
   return *this;
 }
+
+complex complex::operator+(const complex &x){
+	complex res=*this;
+	res.sum(x);
+	return res;
+}
+
+complex complex::operator-(const complex &x){
+	complex res=*this;
+	res.a=res.a-x.a;
+	res.b=res.b-x.b;
+	return res;
+}
+
+
+complex complex::operator*(const complex &x){
+	complex res=*this;
+	res.a=res.a*x.a;
+	res.b=res.b*x.b;
+	return res;
+}
+
+complex complex::operator/(const complex &x){
+	complex res=*this;
+	res.a=res.a/x.a;
+	res.b=res.b/x.b;
+	return res;
+}
+
+complex complex::operator=(const complex &x){
+	a=x.a;b=x.b;
+	return *this;
+}
