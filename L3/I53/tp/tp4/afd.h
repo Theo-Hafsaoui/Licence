@@ -30,7 +30,7 @@ typedef struct {
   char * alphabet;
   uchar tsymb[SYMB_NB_MAX];
   uint *finals;
-  uint **delta;
+  uint **delta;//Liste des etat
 } afd;
 
 void afd_init(afd *A, uint nbetat, char *alphabet, uint nbfinal, uint init, uint *finals);

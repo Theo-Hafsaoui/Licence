@@ -23,12 +23,12 @@ int main(int argc, char *argv[])
   afd_add_trans(&A, 4, 'a', 4);
   afd_add_trans(&A, 4, 'b', 4);
 
-   afd_print(A);
-  //afd_finit(&B, "exemple.afd");
-  //afd_print(B);
+  //afd_print(A);
+  afd_finit(&B, "exemple.afd");
+  afd_print(B);
 
   //printf("%d", afd_simul(argv[1],B)); 
-  //afd_free(&B);
+  afd_free(&B);
   afd_free(&A);
   return 0;
 }

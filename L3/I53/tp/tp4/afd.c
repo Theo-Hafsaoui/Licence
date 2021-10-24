@@ -1,5 +1,4 @@
 #include "afd.h"
-#include <cstdlib>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -65,12 +64,10 @@ void afd_free(afd *A)
 void afd_add_trans(afd *A, uint q1, uint s, uint q2)
 {
   uchar symb = A->tsymb[s-SYMB_ASCII_DEB];
-
   if (symb == SYMB_NONE){
     fprintf(stderr, "[add_trans] %u -- %c --> %u\n", q1,s,q2);
     exit(-1);
   }
-
   if ( (q1<0) || (q1>=A->nbetat) ){
    fprintf(stderr, "[add_trans] etat <%d> non reconnu\n", q1);
     exit(-1);
@@ -79,7 +76,6 @@ void afd_add_trans(afd *A, uint q1, uint s, uint q2)
    fprintf(stderr, "[add_trans] etat <%d> non reconnu\n", q2);
     exit(-1);
   }
-
   A->delta[q1][symb] = q2;
 }
 
@@ -144,21 +140,24 @@ void afd_print(afd A)
 
 void afd_finit(afd *A, char *nomfichier)
 {
- FILE* fl;
- fscanf(fl, "%u %s %u\n", &A->nbetat, A->alphabet, &A->nbfinal );
- fscanf(fl, "%u\n",&A->init);
- uint* lf= calloc(A->nbfinal, sizeof(int));
- for (int i=0; i<A->nbfinal-1; i++) {
-  fscanf(fl, "%d",&lf[i]);
- }
- fscanf(fl, "%d\n",&lf[A->nbfinal]);
- A->finals=lf;
- uchar* tsym= calloc(96, sizeof(uchar));
- while (feof(fl)) {
-
-
- }
-
+  uint nbetat , nbfinal ,inita;
+  char alphabet[128];//nb of char in ascii
+  FILE* fl;
+  fl = fopen(nomfichier, "r");
+  fscanf(fl, "%u %s %u\n",&nbetat, alphabet, &nbfinal );
+  fscanf(fl, "%u\n",&inita);
+  uint* lf= calloc(nbfinal, sizeof(int));//final
+  for (int i=0; i<nbfinal-1; i++) {
+    fscanf(fl, "%d",&lf[i]);
+  }
+  fscanf(fl, "%d\n",&lf[nbfinal-1]);
+  afd_init(A,nbetat,alphabet,nbfinal,inita,lf);
+  uint x,x2;
+  char s;
+  while (!feof(fl)) {
+    fscanf(fl, "%u %s %u\n",&x, &s, &x2 );
+    afd_add_trans(A, x, s, x2);
+  }
 }
 
 int afd_simul(char *s, afd A){
