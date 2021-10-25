@@ -28,6 +28,12 @@ int main(int argc, char *argv[])
   afd_print(B);
 
   //printf("%d", afd_simul(argv[1],B)); 
+  if (afd_simul("a",B)) {
+    printf("Expression is correct\n");
+  }
+  else {
+    printf("Expression is incorrect\n");
+  }
   afd_free(&B);
   afd_free(&A);
   return 0;

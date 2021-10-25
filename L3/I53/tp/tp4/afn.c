@@ -1,4 +1,5 @@
 #include "afn.h"
+#include "afd.h"
 
 
 void afn_init(afn *A, uint nbetat, char * alphabet, ullong init, ullong finals)
@@ -129,7 +130,28 @@ void afn_print(afn A){
   etat_i_n1 symb_j_n etat_i_n2
 
 */
-void afn_finit(char *nomfichier, afn *A);
+void afn_finit(char *nomfichier, afn *A){
+  uint nbetat ;
+  ullong inita;
+  char alphabet[128];//nb of char in ascii
+  FILE* fl;
+  fl = fopen(nomfichier, "r");
+  fscanf(fl, "%u %s \n",&nbetat, alphabet);
+  fscanf(fl, "%llu\n",&inita);
+  uint* lf= calloc(nbfinal, sizeof(int));//final
+  for (int i=0; i<nbfinal-1; i++) {
+    fscanf(fl, "%d",&lf[i]);
+  }
+  fscanf(fl, "%d\n",&lf[nbfinal-1]);
+  afd_init(A,nbetat,alphabet,nbfinal,inita,lf);
+  uint x,x2;
+  char s;
+  while (!feof(fl)) {
+    fscanf(fl, "%u %s %u\n",&x, &s, &x2 );
+    afd_add_trans(A, x, s, x2);
+  }
+
+}
 
 /*
   Retourne l'epsilon fermeture de l'ensemble d'états <R> par
