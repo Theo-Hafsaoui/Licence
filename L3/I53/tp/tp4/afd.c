@@ -160,6 +160,19 @@ void afd_finit(afd *A, char *nomfichier)
   }
 }
 
+int Is_final(afd A, int etat){
+  for (int i=0; i<A.nbfinal; i++) {
+    if (A.finals[i]==etat) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
 int afd_simul(char *s, afd A){
-  return 42;  
+  int res=(A.init);//etat initial
+  for (int i=0; s[i]!=0; i++) {
+    res=A.delta[res][A.tsymb[s[i]-32]];//97 pas 32 putain
+  }
+  return Is_final(A, res);
 }

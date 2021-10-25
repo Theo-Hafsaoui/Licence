@@ -9,7 +9,7 @@ typedef string str;
 
 etudiant1::etudiant1(){
   nb=0;
-  *note=0;
+  note=nullptr;
 }
 
 etudiant1::etudiant1(str nom,str prenom,int age,int nb_note):personne(nom, prenom, age){
@@ -57,8 +57,13 @@ int etudiant1::avg(){
   return (average/nb);
 }
 
-etudiant1 etudiant1::operator=(const etudiant1 &){
-  etudiant1 res
-  etudiant.personne::operator=()
+etudiant1 etudiant1::operator=(const etudiant1 &x){
+  etudiant1 res;
+  res.personne::operator=(x);
+  nb=x.nb;
+  note=new int[nb];
+  for (int i=0; i<nb; i++) {
+    note[i]=x.note[i];
+  }
   return res;
 }

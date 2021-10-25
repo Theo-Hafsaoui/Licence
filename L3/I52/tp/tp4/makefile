@@ -3,7 +3,7 @@ FLAG= -g -Wall
 OBJ= test.o Personne.o prof.o etudiant.o
 
 test.exe: $(OBJ)
-	$(CC) $(FLAG) $(OBJ) -o test.exe && ./test.exe
+	$(CC) $(FLAG) $(OBJ) -o test.exe 
 
 test.o: test.cpp Personne.h prof.h
 	$(CC) -c $(FLAG) $<
