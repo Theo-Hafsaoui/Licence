@@ -128,7 +128,6 @@ void afn_print(afn A){
   .
   .
   etat_i_n1 symb_j_n etat_i_n2
-
 */
 void afn_finit(char *nomfichier, afn *A){
   uint nbetat ;

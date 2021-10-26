@@ -38,5 +38,3 @@ int main(int argc, char *argv[])
   afd_free(&A);
   return 0;
 }
-
-

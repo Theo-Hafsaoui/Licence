@@ -25,3 +25,7 @@ personne::personne(const personne& x){
     pnm=x.pnm;
     ag=x.ag;
 }
+
+void personne::vieillir(){
+    ag++;
+}

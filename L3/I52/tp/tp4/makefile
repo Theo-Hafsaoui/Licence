@@ -1,6 +1,6 @@
 CC=g++
 FLAG= -g -Wall 
-OBJ= test.o Personne.o prof.o etudiant.o
+OBJ= test.o Personne.o prof.o etudiant.o matier.o
 
 test.exe: $(OBJ)
 	$(CC) $(FLAG) $(OBJ) -o test.exe 
@@ -15,4 +15,7 @@ prof.o: prof.cpp prof.h
 	$(CC) -c $(FLAG) $<
 
 etudiant.o: etudiant.cpp etudiant.h
+	$(CC) -c $(FLAG) $<
+
+matier.o: matier.cpp matier.h
 	$(CC) -c $(FLAG) $<

@@ -22,10 +22,10 @@ int main(){
     //x.print();
     //int av= x.avg();
     //std::cout<<"Moyen= "<<av<<std::endl;
-    personne x("Theo","Hafsaoui",122,3);
-    personne d("Dorian","Gray",40,3);
-    d.vieillir();
-    d.print();
-    etudiant1 x2(x);
+    //personne x("Theo","Hafsaoui",122);
+    //personne d("Dorian","Gray",40);
+    //d.vieillir();
+    //d.print();
+    //etudiant1 x2;
     return 0;
 }
