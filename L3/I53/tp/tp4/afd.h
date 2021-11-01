@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <string.h>
-
+#define ALPABET "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&"
 #define SYMB_NB_MAX 96
 #define SYMB_ASCII_DEB 32
 #define SYMB_ASCII_FIN 127

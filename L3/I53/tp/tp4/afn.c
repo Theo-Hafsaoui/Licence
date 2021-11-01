@@ -5,20 +5,15 @@
 void afn_init(afn *A, uint nbetat, char * alphabet, ullong init, ullong finals)
 {
   A->nbetat = nbetat;
-  
   A->alphabet = malloc(strlen(alphabet)+1);
   strcpy(A->alphabet, alphabet);
   A->nbsymb = strlen(alphabet);
-  
   A->init = init;
   A->finals = finals;
-
   int i;
   uchar symb;
-
   for (i=0; i<SYMB_NB_MAX; i++)
     A->tsymb[i] = SYMB_NONE;
-
   for (i=0; i<A->nbsymb; i++){
     if ( (alphabet[i] < SYMB_ASCII_DEB) ||
 	 (alphabet[i] > SYMB_ASCII_FIN) ){
@@ -45,12 +40,10 @@ void afn_init(afn *A, uint nbetat, char * alphabet, ullong init, ullong finals)
 void afn_add_trans(afn *A, uint q1, uint s, uint q2)
 {
   uchar symb = A->tsymb[s-SYMB_ASCII_DEB];
-      
   if (symb == SYMB_NONE){
     fprintf(stderr, "[add_trans] %u -- %c --> %u symbole inconnu\n", q1,s,q2);
     exit(-1);
   }
-
   if ( (q1<0) || (q1>=A->nbetat) ){
    fprintf(stderr, "[add_trans] etat <%d> non reconnu\n", q1);
     exit(-1);
@@ -59,7 +52,6 @@ void afn_add_trans(afn *A, uint q1, uint s, uint q2)
    fprintf(stderr, "[add_trans] etat <%d> non reconnu\n", q2);
     exit(-1);
   }
-  
   A->delta[q1][symb] |= INT_ETAT(q2);
 }
 
@@ -129,7 +121,7 @@ void afn_print(afn A){
   .
   etat_i_n1 symb_j_n etat_i_n2
 */
-void afn_finit(char *nomfichier, afn *A){
+void afn_finit(afn *A,char *nomfichier){
   uint nbetat ;
   ullong inita;
   char alphabet[128];//nb of char in ascii
@@ -137,25 +129,24 @@ void afn_finit(char *nomfichier, afn *A){
   fl = fopen(nomfichier, "r");
   fscanf(fl, "%u %s \n",&nbetat, alphabet);
   fscanf(fl, "%llu\n",&inita);
-  uint* lf= calloc(nbfinal, sizeof(int));//final
-  for (int i=0; i<nbfinal-1; i++) {
-    fscanf(fl, "%d",&lf[i]);
-  }
-  fscanf(fl, "%d\n",&lf[nbfinal-1]);
-  afd_init(A,nbetat,alphabet,nbfinal,inita,lf);
+  ullong final;
+  fscanf(fl, "%llu",&final);
+  afn_init(A, nbetat, alphabet, inita, final);
   uint x,x2;
   char s;
   while (!feof(fl)) {
     fscanf(fl, "%u %s %u\n",&x, &s, &x2 );
-    afd_add_trans(A, x, s, x2);
+    afn_add_trans(A, x, s, x2);
   }
-
 }
 
 /*
   Retourne l'epsilon fermeture de l'ensemble d'états <R> par
   l'automate <A>
 */
+ullong epsilon(afn A, ullong R){
+  return 42;
+}
 ullong afn_epsilon_fermeture(afn A, ullong R);
 
 /*
@@ -168,15 +159,60 @@ void afn_determinisation(afn A, afd *D);
   Calcule l'automate qui reconnait le caractere <c> dans un alphabet a
   <nbsymb> symboles
 */  
-void afn_char(afn *C, char c, uint nbsymb);
+void afn_char(afn *C, char c, uint nbsymb){
+  char alphabet[64]=ALPABET;    
+  afn_init(C, 2, alphabet, 1, 1);
+  afn_add_trans(C, 0, c, 1);
+}
 
+void shift_copy(afn *A, afn B,int ind){
+  // ajoute a A les transnition decaler de i de l'afn B
+  //dans l'afn A
+  for (int q=0; q<B.nbetat; q++) {
+    for (int s=0; s<B.nbsymb; s++) {
+      if (B.delta[q][s]!=0) {
+        for (int k=0; k<B.nbetat; k++) {
+          if (IN(k, B.delta[q][s]))
+            afn_add_trans(A, q+ind, A->alphabet[s], k+ind); } } } }
+}
 /*
-  Calcule un automate qui reconnait l'union de <A> et <B>
+ * Calcule un automate qui reconnait l'union de <A> et <B>
+ *
+ *  &    +---+->0
+ *  +-->O|a  |
+ *  |    +---+->0
+ *->O
+ *  |    +---+->0
+ *  +-->O|b  |
+ *  &    +---+->0
+ *
 */
-void afn_union(afn *C, afn A, afn B);
-
+void afn_union(afn *C, afn A, afn B){
+  char alphabet[64]=ALPABET;    
+  uint nbetat=A.nbetat+B.nbetat+1; uint finaux=A.finals+B.finals;
+  afn_init(C, nbetat, alphabet, 1, finaux);
+  shift_copy(C,B,1);
+  shift_copy(C,A,1);
+  for (int i=0; i<A.nbetat; i++)
+  {
+    if IN(i,A.init)
+      afn_add_trans(C, 0, '&', i+1);
+  }
+  for (int i=0; i<B.nbetat; i++)
+  {
+    if IN(i,A.init)
+      afn_add_trans(C, 0, '&', i+1);
+  }
+}
+  
 /*
-  Calcule un automate qui reconnait la concatenation de <A> et <B>
+ *Calcule un automate qui reconnait la concatenation de <A> et <B>
+ *
+ *   +-+     +-+
+ *->O| |->O->| |->0
+ *   +-+     +-+
+ *    A       B
+ *
 */
 void afn_concat(afn *C, afn A, afn B);
 

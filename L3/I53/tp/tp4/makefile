@@ -1,9 +1,10 @@
 CC = gcc
+OBJ=af.o afd.o afn.o
 CFLAGS = -Wall -g
 
 all: af
 
-af: af.o afd.o
+af: af.o afd.o afn.o
 	$(CC) $(CFLAGS) $^ -o $@ 
 
 %.o: %.c
