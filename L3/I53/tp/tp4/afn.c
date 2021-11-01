@@ -1,5 +1,6 @@
 #include "afn.h"
 #include "afd.h"
+#include <stdio.h>
 
 
 void afn_init(afn *A, uint nbetat, char * alphabet, ullong init, ullong finals)
@@ -207,15 +208,30 @@ void afn_union(afn *C, afn A, afn B){
   
 /*
  *Calcule un automate qui reconnait la concatenation de <A> et <B>
- *
+ *On estime que une transition epslone et la meme chose que le meme etats
  *   +-+     +-+
  *->O| |->O->| |->0
  *   +-+     +-+
  *    A       B
  *
 */
-void afn_concat(afn *C, afn A, afn B);
-
+void afn_concat(afn *C, afn A, afn B){
+  char alphabet[64]=ALPABET;    
+  uint nbetat=A.nbetat+B.nbetat; uint finaux=B.finals+A.nbetat-1;
+  afn_init(C, nbetat, alphabet, A.init, finaux);
+  shift_copy(C,A,0);
+  shift_copy(C,B,A.nbetat-1);
+  for (int q=0; q<A.nbetat; q++)
+  {
+    if IN(q,A.finals){
+      for (int i=0; i<B.nbetat; i++)
+      {
+        if IN(i,B.init)
+          afn_add_trans(C, 32-(__builtin_clz(q)), '&', i+A.nbetat-1);
+      }
+    }
+  }
+}
 /*
   Calcule un automate qui reconnait la fermeture de Kleene de <A>
 */

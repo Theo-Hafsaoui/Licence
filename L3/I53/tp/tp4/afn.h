@@ -32,5 +32,6 @@ void afn_determinisation(afn A, afd *D);
 void afn_char(afn *C, char c, uint nbsymb);
 void shift_copy(afn *A, afn B,int ind);
 void afn_union(afn *C, afn A, afn B);
+void afn_concat(afn *C, afn A, afn B);
 
 #endif

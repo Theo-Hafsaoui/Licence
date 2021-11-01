@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
   afn_char(&D,'b',0);
   afn_print(C);
   afn_print(D);
-  afn_union(&CD,C,D);
+  //afn_union(&CD,C,D);
+  afn_concat(&CD,C,D);
   afn_print(CD);
 //  afn_finit(&C, "exemple.afn");
 //  afn_print(C);
