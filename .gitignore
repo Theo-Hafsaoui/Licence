@@ -3,3 +3,4 @@
 __pycache__/
 .vscode
 .exe
+.gdb_history

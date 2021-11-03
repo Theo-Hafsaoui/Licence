@@ -157,8 +157,11 @@ ullong afn_epsilon_fermeture(afn A, ullong R);
 void afn_determinisation(afn A, afd *D);
 
 /*
-  Calcule l'automate qui reconnait le caractere <c> dans un alphabet a
-  <nbsymb> symboles
+ *Calcule l'automate qui reconnait le caractere <c> dans un alphabet a
+ *<nbsymb> symboles
+ *
+ *->O--->0
+ *    c
 */  
 void afn_char(afn *C, char c, uint nbsymb){
   char alphabet[64]=ALPABET;    
@@ -186,7 +189,6 @@ void shift_copy(afn *A, afn B,int ind){
  *  |    +---+->0
  *  +-->O|b  |
  *  &    +---+->0
- *
 */
 void afn_union(afn *C, afn A, afn B){
   char alphabet[64]=ALPABET;    
@@ -213,7 +215,6 @@ void afn_union(afn *C, afn A, afn B){
  *->O| |->O->| |->0
  *   +-+     +-+
  *    A       B
- *
 */
 void afn_concat(afn *C, afn A, afn B){
   char alphabet[64]=ALPABET;    
