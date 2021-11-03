@@ -7,7 +7,7 @@ class etudiant2: private etudiant1{
   private:
     str* Lm;
   public:
-    etudiant2(string nom,string prenom,int age,int nbnote, int nb_suiv );
+    etudiant2(string ,string ,int ,int , str*);
     etudiant2(const etudiant2&);
     ~etudiant2();
     void print();
