@@ -50,3 +50,4 @@ void Film::affiche(){
 	else
 		cout<<titre<<realisateur<<annee<<duree<<"Courtmetrage"<<endl;
 }
+

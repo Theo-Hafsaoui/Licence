@@ -52,20 +52,18 @@ for(int i=0; i<4;i++)
 
 // tests des constructeurs de la classes MeilleursFilms
 MeilleursFilms mesMF(tab,4), tesMF(2), sesMF;
-
-// test de la surcharge de = et de +
+//
+//// test de la surcharge de = et de +
 tesMF= mesMF + M + FDAP;
-
-//test de longmetrage
-MeilleursFilms  tesLM;
-
-tesLM=tesMF.longmetrage();
-
-
-cout<<"Tes longs Métrages : "<<endl;
-for(int i=0; i<tesLM.get_nbfilm();i++)
-	cout<<"Film "<<i+1<<endl<<tesLM[i]<<endl;
-
-
+//
+////test de longmetrage
+//MeilleursFilms  tesLM;
+//
+//tesLM=tesMF.longmetrage();
+//
+//
+//cout<<"Tes longs Métrages : "<<endl;
+//for(int i=0; i<tesLM.get_nbfilm();i++)
+//	cout<<"Film "<<i+1<<endl<<tesLM[i]<<endl;
 return 0;
 }

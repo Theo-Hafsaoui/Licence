@@ -19,10 +19,12 @@ public:
 	int get_nbfilm(){return nbfilm;};
 
 //surcharge de l'opérateur =
-	
+  MeilleursFilms operator=(const MeilleursFilms&);
 
 // Surcharge de l'opérateur +
-	MeilleursFilms operator+(const Recompense &);//surcharge de l'opérateur + qui retourne une instance de la classe MeilleursFilms obtenue en ajoutant un film à l'objet courant de la classe MeilleursFilms
+	MeilleursFilms operator+(const Recompense &);//surcharge de l'opérateur + qui retourne 
+	//une instance de la classe MeilleursFilms obtenue en ajoutant un film à l'objet courant 
+	//de la classe MeilleursFilms
 
 // Surcharge de l'opérateur []
 	Recompense operator[](int i);// retourne la recompense de rang i dans la selection.
