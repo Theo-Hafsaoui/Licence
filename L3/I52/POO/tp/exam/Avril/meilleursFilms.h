@@ -17,6 +17,7 @@ public:
 
 //Accesseurs
 	int get_nbfilm(){return nbfilm;};
+	Recompense* get_selec(){return selection;};
 
 //surcharge de l'opérateur =
   MeilleursFilms operator=(const MeilleursFilms&);

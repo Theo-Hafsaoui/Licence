@@ -33,11 +33,13 @@ MeilleursFilms::~MeilleursFilms(){
 	delete [] selection;
 }
 
-MeilleursFilms MeilleursFilms::operator=(const MeilleursFilms&){
-	MeilleursFilms temp;
-	temp.selection=selection;
-	temp.nbfilm=nbfilm;
-	return temp;
+MeilleursFilms MeilleursFilms::operator=(const MeilleursFilms& x){
+	nbfilm=x.nbfilm;
+	selection= new Recompense[x.nbfilm];
+	for(int i=0;i<x.nbfilm;i++){
+		selection[i]=x.selection[i];
+	}
+	return (*this);
 }
 
 MeilleursFilms MeilleursFilms::operator+(const Recompense& x){
@@ -51,12 +53,18 @@ MeilleursFilms MeilleursFilms::operator+(const Recompense& x){
 	return temp;
 }
 
-
 Recompense MeilleursFilms::operator[](int i){
 	Recompense temp;
 	temp=selection[i];
 	return temp;
 }
-//MeilleursFilms MeilleursFilms::longmetrage(){
-//
-//}
+MeilleursFilms MeilleursFilms::longmetrage(){
+	MeilleursFilms temp;
+	int n= this->get_nbfilm();
+	for(int i=0;i<n;i++){
+		if(selection[i].Recompense::longmetrage()){
+			temp=temp+selection[i];
+		}
+	}
+	return temp;
+}

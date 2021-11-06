@@ -55,15 +55,18 @@ MeilleursFilms mesMF(tab,4), tesMF(2), sesMF;
 //
 //// test de la surcharge de = et de +
 tesMF= mesMF + M + FDAP;
+
+//// test de la surcharge de []
+Recompense testOvr=tesMF[0];
+cout<<testOvr<<endl;
+//test de longmetrage
+MeilleursFilms  tesLM;
 //
-////test de longmetrage
-//MeilleursFilms  tesLM;
-//
-//tesLM=tesMF.longmetrage();
-//
-//
-//cout<<"Tes longs Métrages : "<<endl;
-//for(int i=0; i<tesLM.get_nbfilm();i++)
-//	cout<<"Film "<<i+1<<endl<<tesLM[i]<<endl;
+tesLM=tesMF.longmetrage();
+
+
+cout<<"Tes longs Métrages : "<<endl;
+for(int i=0; i<tesLM.get_nbfilm();i++)
+	cout<<"Film "<<i+1<<endl<<tesLM.get_selec()[i]<<endl;
 return 0;
 }
