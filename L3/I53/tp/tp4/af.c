@@ -6,6 +6,9 @@
 #include <stdio.h>
 #include "afd.h"
 #include "afn.h"
+#include "lexer.h"
+#include "parser.h"
+static char** l;
 
 int main(int argc, char *argv[])
 {
@@ -25,14 +28,15 @@ int main(int argc, char *argv[])
   //afd_print(A);
   //afd_finit(&B, "exemple.afd");
   //afd_print(B);
-  afn C;afn D;afn CD;
+  afn C;afn D;//afn CD;
   afn_char(&C,'a',0);
   afn_char(&D,'b',0);
-  afn_print(C);
-  afn_print(D);
+  //afn_print(C);
+  //afn_print(D);
   //afn_union(&CD,C,D);
-  afn_concat(&CD,C,D);
-  afn_print(CD);
+  //afn_concat(&CD,C,D);
+  //afn_kleene(&CD,C);
+  //afn_print(CD);
 //  afn_finit(&C, "exemple.afn");
 //  afn_print(C);
 //  printf("%d", afd_simul(argv[1],B)); 
@@ -43,6 +47,12 @@ int main(int argc, char *argv[])
 //    printf("Expression is incorrect\n");
 //  }
   //printf("je reson:%d\n",0==NULL);
+  if (argc>1) {
+    l=scanner(argv[1]);
+  }
+  rpn(l);
+  //TODO Parser qui donne la list postfix
+  //TODO Mygrep qui execute les instruction rpn
   afn_free(&C);
   afd_free(&A);
   return  0;

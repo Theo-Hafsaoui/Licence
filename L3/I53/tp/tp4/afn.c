@@ -179,9 +179,9 @@ void shift_copy(afn *A, afn B,int ind){
           if (IN(k, B.delta[q][s]))
             afn_add_trans(A, q+ind, A->alphabet[s], k+ind); } } } }
 }
+
 /*
  * Calcule un automate qui reconnait l'union de <A> et <B>
- *
  *  &    +---+->0
  *  +-->O|a  |
  *  |    +---+->0
@@ -233,7 +233,29 @@ void afn_concat(afn *C, afn A, afn B){
     }
   }
 }
+
 /*
-  Calcule un automate qui reconnait la fermeture de Kleene de <A>
+ *Calcule un automate qui reconnait la fermeture de Kleene de <A>
+ *        +-+ 
+ *->0->O->|A|--0
+ *  ^     +-+  |
+ *  |          | 
+ *  +----------+
+ *         &
 */
-void afn_kleene(afn *C, afn A);
+void afn_kleene(afn *C, afn A){
+  char alphabet[64]=ALPABET;    
+  uint nbetat=A.nbetat+1; uint finaux=A.finals;
+  afn_init(C, nbetat, alphabet, 1, INT_ETAT(finaux));
+  shift_copy(C,A,1);
+  for (int i=0; i<A.nbetat; i++)
+  {
+    if IN(i,C->finals){
+      for (int j=0; j<A.nbetat; j++){
+        if IN(j,A.init){
+          afn_add_trans(C,i,'&',j);
+        }
+      }
+    }
+  }
+}
