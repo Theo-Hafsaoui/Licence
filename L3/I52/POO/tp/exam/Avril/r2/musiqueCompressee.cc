@@ -1,9 +1,7 @@
-#include <cstdio>
 #include <string>
 #include <iostream>
 #include "musique.h"
 #include "musiqueCompressee.h"
-#include <iostream>
 using namespace std;
 
 MusiqueCompressee::MusiqueCompressee(){
@@ -25,10 +23,9 @@ MusiqueCompressee::MusiqueCompressee(const MusiqueCompressee& x):Musique(x){
 }
 
 float MusiqueCompressee::taille_mem ()const{
-	return (((*this).get_duree())*(taux));	
+	return(this->get_duree()*taux);	
 }
-
-ostream& operator<<(ostream& f, MusiqueCompressee& x){
+ostream& operator<<(ostream& f, const MusiqueCompressee& x){
 	f<<x.get_titre()<<x.get_auteur()<<x.taille_mem()<<endl;
 	return f;
 }

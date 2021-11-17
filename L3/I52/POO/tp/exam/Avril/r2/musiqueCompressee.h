@@ -18,6 +18,6 @@ public:
 	//polymorphisme 
 	float taille_mem ()const;// calcule la taille du fichier
 	//surcharge de l'opérateur <<
-	friend ostream& operator<<(ostream&, MusiqueCompressee&);	
+	friend ostream& operator<<(ostream&, const MusiqueCompressee&);
 };
 #endif

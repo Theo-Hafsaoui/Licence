@@ -36,7 +36,7 @@
      \text{Cours de Nicolas Meloni 2021}
      \end{center}
      \tableofcontents
-    \section{\color{OrangeHaf} Chapitre 1: Une premiere approche du compilateur}
+    \section{\color{OrangeHaf} Chapitre 0: Une premiere approche du compilateur}
      \subsection{Introduction}
         En informatique en generale, et tout particulierement dans la sciences de l'informatique
         on suit une logique similaire celle ci ce decompose de cette maniere pour notre tres chere compilateur.
@@ -160,7 +160,7 @@
     \item \textbf{Production du code}:\\
     Optimisation final du code a partir du code intermediaire avec par exemple des option specifique($gcc$ -O1 -O2 -O3)
   \end{enumerate}
-  \section{\color{OrangeHaf}Chapitre 2: Traduction elementaire}
+  \section{\color{OrangeHaf}Chapitre 1: Traduction elementaire}
   Le but de ce chapitre est d'ecrire un programme capable d'evaluer une expression arithmetique, c'est a dire les expression de la forme ((2+3)7*9), ce programme nous permettra de mettre en oeuvre les grande etape de la compilation des programme, c'est a dire l'analyseur lexicale/syntaxique ainsi que la generation de code et peut etre l'optimisation.
   \subsection{Analyse lexicale}
       Le premier etape consiste a definir le l'alaphabet du langage etudier ici on considere:\\
@@ -199,6 +199,17 @@
       9*(5-2)\\
       Expr-\> Expr Op Expr\\
   \end{minipage}
+  \section{\color{OrangeHaf}Chapitre 2: Automate}
+  %TODO Image classe
+  \subsection{Langage}
+  Pour resoudre les nombreux probleme que pose l'analyse lexicale des lanagge de programation nous allons etudier une partie 
+  important de la sciences de l'informatique la theorie des langages et des automate.\\
+      \textbf{Alphabet:}
+        un alaphabet est un ensemble de fini, dont les element sont appele symbole ou lettre.
+        \\
+      \textbf{Mot:}
+        soit $\sigma$ un alaphabet, un mot est une suite de simbole. par exemple: $w:w_1,w_2\ldots,w_n$ un mot sur $\sigma$
+        
 
 
 

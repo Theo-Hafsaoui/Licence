@@ -2,10 +2,11 @@ CC= g++
 FLAG= -Wall -g
 OBJ= albumMP3.o  main.o  musique.o  musiqueCompressee.o 
 EX1= main.o  musique.o 
+EX2= main.o  musique.o musiqueCompressee.o
 
 all:exam.exe
 
-exam.exe:$(EX1)
+exam.exe:$(EX2)
 	$(CC) $(FLAG) $^ -o $@
 
 main.o: main.cc albumMP3.h musique.h musiqueCompressee.h 

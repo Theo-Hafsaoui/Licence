@@ -25,9 +25,6 @@ void disp_arr(int l [], size_t n)
     printf(" ]\n");
 }
 
-#include <time.h>
-#include <math.h>
-
 long millis(){
     struct timespec _t;
     clock_gettime(CLOCK_REALTIME, &_t);

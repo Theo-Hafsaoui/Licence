@@ -1,0 +1,8 @@
+# Exécution
+# $ ./analysePython fonction_1.py max
+# niveau d'imbrication max: 0
+# fonction max: 1
+
+L = [1,2,3,4,5,6]
+print(max(L))
+

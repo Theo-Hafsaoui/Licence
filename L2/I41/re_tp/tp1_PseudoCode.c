@@ -82,17 +82,17 @@ uint SireAccuse(uint n){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 int main(int argc, char const *argv[])
 {
-    //const char * ch=argv[1];
-    //boul tbool= Palindindin(ch);
-    //int t[5]={5,4,8,2,1,};
-    //SelectSort(t,5);
-    //affiche(t,5);
-    //int s;
-    //for (int i = 1; i < 1000; i++)
-    //{
-        //s=SireAccuse(i);
-        //printf("%d      %d\n",i,s);
-    //}
-    
-    return 0;
+    const char * ch=argv[1];
+    boul tbool= Palindindin(ch);
+    int t[5]={5,4,8,2,1,};
+    SelectSort(t,5);
+    affiche(t,5);
+//    int s;
+//    for (int i = 1; i < 1000; i++)
+//    {
+//        s=SireAccuse(i);
+//        printf("%d      %d\n",i,s);
+//    }
+//    
+//    return 0;
 }
