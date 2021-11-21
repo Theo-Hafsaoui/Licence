@@ -14,7 +14,7 @@ graph create_graph(int x){
 }
 
 void free_graph(graph g){
-//Free a graph creat throught create_graph
+//Free a graph created throught create_graph
   for (int i=0; i<g.n; i++) {
     free(g.T[i]);
   }

@@ -2,13 +2,19 @@
   /*Prologue*/
   #include <stdio.h>
   #include <string.h>
+  #include <stdlib.h>
   int cpt=0;
   typedef struct list_symb {
     char *symb;
     int count;
     struct list_symb * suiv;
   } list_symb;
-  list_symb head=0;
+  list_symb* head=0;
+  int inserer(char *nom , list_symb** head) {
+    if(*head==0){
+      list_symb l=malloc(sizeof(list_symb));
+    }
+  }
 %}
 BLANC    [ \t]
 ENTIER   [0-9]

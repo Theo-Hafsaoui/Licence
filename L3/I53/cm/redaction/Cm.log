@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.11.17)  17 NOV 2021 19:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.11.17)  18 NOV 2021 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -511,12 +511,51 @@ Package french.ldf Warning: OT1 encoding should not be used for French.
 (french.ldf)                Add \usepackage[T1]{fontenc} to the preamble
 (french.ldf)                of your document; reported on input line 28.
 
-<dragon.png, id=56, 207.8967pt x 272.4579pt>
+<dragon.png, id=64, 207.8967pt x 272.4579pt>
 File: dragon.png Graphic file (type png)
 <use dragon.png>
 Package pdftex.def Info: dragon.png  used on input line 31.
 (pdftex.def)             Requested size: 256.0748pt x 335.6284pt.
-(./Cm.toc)
+(./Cm.toc
+LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
+(Font)              scaled to size 6.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
+(Font)              scaled to size 6.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
+(Font)              scaled to size 6.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
+(Font)              scaled to size 6.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
+(Font)              scaled to size 6.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 3.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./dragon.png>])
 \tf@toc=\write4
 \openout4 = `Cm.toc'.
 
@@ -525,45 +564,6 @@ Package pdftex.def Info: dragon.png  used on input line 31.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 39.
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./dragon.png>]
-LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
-(Font)              scaled to size 10.95pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
-(Font)              scaled to size 8.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
-(Font)              scaled to size 6.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
-(Font)              scaled to size 10.95pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
-(Font)              scaled to size 8.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
-(Font)              scaled to size 6.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
-(Font)              scaled to size 10.95pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
-(Font)              scaled to size 8.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
-(Font)              scaled to size 6.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
-(Font)              scaled to size 10.95pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
-(Font)              scaled to size 8.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
-(Font)              scaled to size 6.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
-(Font)              scaled to size 10.95pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
-(Font)              scaled to size 8.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
-(Font)              scaled to size 6.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 49.
-LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 49.
 
 Overfull \hbox (18.40181pt too wide) in paragraph at lines 49--50
 \OT1/cmr/m/n/10.95 Le cours est ba-ser sur la bible de la com-pi-la-tion "$\OML
@@ -581,12 +581,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--54
 
  []
 
-<fig1.png, id=69, 284.5029pt x 284.5029pt>
+[2]
+<fig1.png, id=100, 284.5029pt x 284.5029pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
 Package pdftex.def Info: fig1.png  used on input line 65.
 (pdftex.def)             Requested size: 199.16928pt x 199.16803pt.
-[2]
+
 Overfull \hbox (78.21349pt too wide) in paragraph at lines 68--71
 \OT1/cmr/m/n/10.95 En ge-ne-rale le com-pi-la-teur pro-duit du code de ma-niere
  plus ef-fi-cace(vitesse,taille,consomation
@@ -597,13 +598,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
-<fig2.png, id=80, 284.5029pt x 284.5029pt>
+<fig2.png, id=101, 284.5029pt x 284.5029pt>
 File: fig2.png Graphic file (type png)
 <use fig2.png>
 Package pdftex.def Info: fig2.png  used on input line 79.
 (pdftex.def)             Requested size: 227.62204pt x 227.61998pt.
 [3 <./fig1.png>]
-<fig3.png, id=88, 284.5029pt x 284.5029pt>
+<fig3.png, id=111, 284.5029pt x 284.5029pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
 Package pdftex.def Info: fig3.png  used on input line 85.
@@ -618,7 +619,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
-<fig4.png, id=96, 284.5029pt x 284.5029pt>
+<fig4.png, id=119, 284.5029pt x 284.5029pt>
 File: fig4.png Graphic file (type png)
 <use fig4.png>
 Package pdftex.def Info: fig4.png  used on input line 112.
@@ -639,7 +640,7 @@ Overfull \hbox (21.03009pt too wide) in paragraph at lines 170--171
 rac-tere/lettre/symbole.
  []
 
-<Lexer.png, id=113, 284.5029pt x 284.5029pt>
+<Lexer.png, id=136, 284.5029pt x 284.5029pt>
 File: Lexer.png Graphic file (type png)
 <use Lexer.png>
 Package pdftex.def Info: Lexer.png  used on input line 183.
@@ -655,7 +656,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
-<grap.png, id=123, 284.5029pt x 284.5029pt>
+<grap.png, id=146, 284.5029pt x 284.5029pt>
 File: grap.png Graphic file (type png)
 <use grap.png>
 Package pdftex.def Info: grap.png  used on input line 194.
@@ -665,24 +666,23 @@ Package pdftex.def Info: grap.png  used on input line 194.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 202.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--212
+
+ []
+
 [9 <./grap.png>] (./Cm.aux)
-
-Package rerunfilecheck Warning: File `Cm.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Cm.out':
-(rerunfilecheck)             Before: 27915C7A541718E35F1FFEFC3DB8D001;2109
-(rerunfilecheck)             After:  479CD3EFFAF7A513C38CBA9DA4A90D51;2397.
+Package rerunfilecheck Info: File `Cm.out' has not changed.
+(rerunfilecheck)             Checksum: 479CD3EFFAF7A513C38CBA9DA4A90D51;2397.
  ) 
 Here is how much of TeX's memory you used:
- 14215 strings out of 478994
- 199679 string characters out of 5864750
- 591761 words of memory out of 5000000
- 31475 multiletter control sequences out of 15000+600000
+ 14217 strings out of 478994
+ 199706 string characters out of 5864750
+ 591755 words of memory out of 5000000
+ 31477 multiletter control sequences out of 15000+600000
  412901 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,6n,88p,391b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,7n,88p,391b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/
 texmf-dist/fonts/type1/public/fdsymbol/FdSymbolA-Book.pfb></usr/share/texmf-dis
 t/fonts/type1/public/fdsymbol/FdSymbolB-Book.pfb></usr/share/texmf-dist/fonts/t
@@ -694,10 +694,10 @@ fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
 ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm10
 95.pfb>
-Output written on Cm.pdf (9 pages, 1042789 bytes).
+Output written on Cm.pdf (9 pages, 1044845 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  41 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
 
