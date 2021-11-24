@@ -31,6 +31,5 @@ def color():
     f.close()
     l=dick.items()
     l=list(l)
-    print(l)
     return l
 
