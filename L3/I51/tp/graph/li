@@ -13,12 +13,10 @@ int main(int argc, char* argv[]) {
 //    return 0;
 //#####t#####TEST TP2##########
 //test stack
-    stack s=NULL;
+    stack s;
     push(&s, 42);
     push(&s, 43);
     push(&s, 44);
-    push(&s, 45);
-    push(&s, 46);
     print(s);
     //int n=pop(&s);printf("n=%d\n",n);
 }
