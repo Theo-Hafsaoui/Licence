@@ -1,0 +1,17 @@
+    int i, j;
+    int n = nbpoint;
+    graphe res = initGraphe(n);
+    int m = (n * (n - 1)) / 2;
+    arc *t;
+    disjoint *d, rx, ry;
+
+    t = calloc(m, sizeof(arc));
+    m = 0;
+    for (i = 0; i < n; i++)
+	for (j = i + 1; j < n; j++) {
+	    t[m].r = i;
+	    t[m].s = j;
+	    t[m++].w = poids(i, j);
+	}
+
+    qsort(t, m, sizeof(arc), &cmp);

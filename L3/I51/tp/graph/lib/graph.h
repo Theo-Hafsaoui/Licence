@@ -9,7 +9,7 @@ typedef struct{
 
 graph create_graph(int);
 void free_graph(graph);
-graph random_graph(int, float);
+graph rand_graph(int, float);
 
 
 #endif

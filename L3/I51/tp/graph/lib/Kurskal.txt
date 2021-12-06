@@ -1,0 +1,21 @@
+Kruskal(S,A){
+  Null_set(Y)
+  p<-n(ordre arbre)
+  t<-table des arrete par cout croissant
+  i<-0
+  while(p>1){
+    xy<-t[i]
+      si rep[x]!=rep[y]{
+        reunion (x,y)
+        p++
+      }
+      i++
+  }
+  return y
+}
+#############################################
+Preuve
+#############################################
+On dit qu'une parititon {PQ} des sommets d'un graphe forme une coupre compatible avec un sous ensemble d'arrets E
+si aucune des coupure de E  traverse la coupure {PQ}
+LEMME(arete sure): Soit E un eensemble d'arret minimal d'un graphe (S,A). soit{P,Q} une coupure compatible avec E.

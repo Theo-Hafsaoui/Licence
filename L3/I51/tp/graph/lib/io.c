@@ -56,7 +56,7 @@ graph r_graph(char* src){
   return res; 
 }
 
-void dessiner_graph(graph g, char * filename) {
+void draw_graph(graph g, char * filename) {
 //cf:https://github.com/dxkkxn/univ-tln/blob/50064089918dc96a9537c00b7904275c093bb8d9/L3/S5/I51-Algorithmique-des-graphes/lib/inout.c
     FILE *dst;
     char fn[1024];
@@ -67,7 +67,7 @@ void dessiner_graph(graph g, char * filename) {
         exit(1);
     }
     char cmd[1024];
-    fprintf(dst, "graphe { \n");
+    fprintf(dst, "graph { \n");
     for(int i = 0; i < g.n; i++) {
         for(int j = i; j < g.n; j++) {
             if (g.T[i][j])
@@ -76,6 +76,6 @@ void dessiner_graph(graph g, char * filename) {
     }
     fprintf(dst,"}\n");
     fclose(dst);
-    sprintf(cmd, "dot -Tpng -o %s.png ../data/%s.dot",filename, filename);
+    sprintf(cmd, "dot -Tpng -o %s.png ../data/%s.dot && feh %s.png",filename, filename,filename);
     system(cmd);
 }

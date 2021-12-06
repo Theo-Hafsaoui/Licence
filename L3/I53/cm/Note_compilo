@@ -1,0 +1,105 @@
+                    Conception compilateur
+                    Algo-RAM
+
+Cahier des charges:
+  -traduire des algo ecris en langage algorithmique en programme executable de la machine RAM(zf zanotti)
+Le langage alogritmique:
+  un algo est decrit comme suit:
+    ALGO: nom de l'algo <-alpha numerique sans espace
+    ENTREE: liest_des_entree <- identificateur (int)
+    DEBUT
+      |                  {declaration des variables avec "var" ex: var i(pas de declaration multiple)
+      |                  |affectation avec <- ex: i<-2
+      |                  |op arith +,-,(unair et binair),*,/,%
+      |                  |op bool: OU,ET,NON
+      |                  |comparaison:<,>,<=,>=,=,!=
+      |                  |structure condionelle: 
+      |                  | On autorise l'instruction vide de sorte que 
+      |                  | alors ou sinon n'ai pas besoin d'un saut de ligne
+      |                  | [SI exp ALORS
+      |                  | |  instruction
+      |                  | |SINON
+      |                  | |  instruction
+      |                  | L FSI
+      corps de l'algo<===|fin d'instruction par saut de ligne"\n"
+      |                  |
+      |                  | [SI exp ALORS
+      |                  | |  instruction
+      |                  | L FSI
+      |                  |structure de boucle: 
+      |                  | 
+      |                  | [TQ exp FAIRE
+      |                  | |  instruction
+      |                  | L FTQ
+      |                  |
+      |                  |Commentaire:
+      |                  |   -1 seule ligne separee masque par un croisillion
+      |                  |
+      |                  |Lexique:
+      |                  |  KeyWord: ALGO,VAR,SI,SINON,TQ---> Reserver
+      |                  |  ID=AlphaNumerique+_+ ne commence pas par un nombre
+      |                  |  Nombre: Decimaux (Propre ne commence pas par zero sauf zero) avec l'interval[−256,255]. avec hex
+      |                  |
+      |                  {
+    FIN 
+
+Structure du compilateur:
+          |
+lexer.lex analyse lexical<-------------------+
+          |                                  |
+          |flot de token                     |
+          |                                  |
+parser.y  (analyserur sytaxique)<---- table de symbole ts.h ts.c
+          |                                  |
+          |arbre abstrait                    |
+          |                                  |
+asa.c asa.c generateur de code<--------------+
+          |
+          code RAM
+Lexer.les: Suite de definiton
+Parser.y: construction de la grammaire complete sans accent semantique(verification purement sytaxique du programme) puis ajout des actions.
+
+Structure Arbre abstrait:
+  Jusqu'a present nos analyseru ne construisait pas explicitement un arbre syntaxique mais se contentaient de le parcourir.
+  ex: E: E+E{$$=$1+$3}
+      | nb{$$=yval}
+      3+5 devient E
+                / | \
+                E +  E
+                |    |
+                3    5
+  Construire un arbre syntaxique abstrait(ASA) consiste a creeer une structure d;arbre a la place des evaluation. chaque noeud contient les
+  info de production qui lui est associee.
+  ex: en reprenant ce qui precede on construit:
+          +-----+
+          | op=+|
+          | o  o|
+          +-----+
+        /        \
+    +----+      +----+ 
+    |nb  |      |nb  |
+    |v=3 |      |v=5 |
+    +----+      +----+ 
+  I/Structure ASA
+  typedef enum {typeNb, typeOp} typeNoeud;
+    struct asa{type noeud}
+
+typedef struct asa{
+typeNoeud type;
+  int ninst;
+
+  union {
+    feuilleNb nb;
+    noeudOp op;
+  };
+} asa; cf asa.h
+Le code bison pourait alors resembler a:
+  E:E+E{$$=creeer_nouedOP('+',$1,$3)};
+    | NB      {$$=creer feuilleNb($1)};
+  exemple ajout -
+  E:E-E{$$=creeer_nouedOP('-',$1,$3)};
+    | NB      {$$=creer feuilleNb($1)};
+  exemple ajout ID 
+     ID      {$$=creer feuilleID($1)};
+On ajouteras des fonction de creations de noeud par chaque type de noeud
+de meme on modifira en meme temps la fonction free_asa_de liberation de la memoire.
