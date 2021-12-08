@@ -7,9 +7,12 @@
 %option noinput
 
 ALGO     ALGO
+DEBUT    DEBUT
+FIN      FIN
 SI       SI
 FSI      FSI
 SINON    SINON
+VAR      VAR
 TQ       TQ
 FTQ      FTQ
 PLUS     +
@@ -17,7 +20,7 @@ EQUAL    =
 MINUS    -
 MODULO   %
 END      [\n]
-CHIFFRE  [-]?[1-9]+[0-9]*
+CHIFFRE  [-]?[1-9]+[0-9]*|0
 LETTRE   [a-zA-Z]
 ID      {LETTRE}+
   
@@ -34,7 +37,6 @@ ID      {LETTRE}+
 {MINUS} {return MINUS;}
 {MODULO} {return MODULO;}
 {END} {return END;}
-{CHIFFRE} {return CHIFFRE;}
-{ID} {return ID;}
+{ID} {yyval.id= ID, return ID;}
 .         { fprintf(stderr, "[err lexer] caractere inconnu %c\n",yytext[0]); return 1;}
 %%

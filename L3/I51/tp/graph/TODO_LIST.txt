@@ -1,0 +1,6 @@
+
+1/Krukal
+2/TSP
+3/eulerian_path
+4/coloring
+5/connexe

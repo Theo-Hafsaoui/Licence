@@ -103,3 +103,160 @@ Le code bison pourait alors resembler a:
      ID      {$$=creer feuilleID($1)};
 On ajouteras des fonction de creations de noeud par chaque type de noeud
 de meme on modifira en meme temps la fonction free_asa_de liberation de la memoire.
+
+Generateur de code:
+
+PROG:ALGO ID
+    DEBUT
+      INST
+    FIN {codegen($4)}
+i) description de la machine ram
+cf http://zanotti.univ-tln.fr/ALGO/I31/MachineRAM.html
+#################################################################################################################################################################################################################################
+READ 	ACC ← E[i++] 	Lecture: lit un entier sur la bande d'entrée et le range dans l'acc.
+WRITE 	S[j++] ← ACC 	Écriture: écrit le contenu de l'acc sur la bande de sortie.
+
+Mémoire, adressage
+LOAD #n 	ACC ← n 	Absolu: charge la valeur n dans l'acc.
+LOAD n 	ACC ← R[n] 	Direct: charge le contenu du registre n dans l'acc.
+STORE n 	R[n] ← ACC 	Direct: range le contenu de l'acc dans le registre n.
+
+Opérations arithmétiques
+DEC n 	R[n] ← R[n] - 1 	Décrément: décrémente le contenu du registre n.
+INC n 	R[n] ← R[n] + 1 	Incrément: incrémente le contenu du registre n.
+ADD #n 	ACC ← ACC + n 	Addition abs.: Ajoute la valeur n à l'acc.
+ADD n 	ACC ← ACC + R[n] 	Addition dir.: Ajoute le contenu du registre n à l'acc.
+SUB #n 	ACC ← ACC - n 	Soustraction abs.: Soustrait la valeur n à l'acc.
+SUB n 	ACC ← ACC - R[n] 	Soustraction dir.: Soustrait le contenu du registre n à l'acc.
+MUL #n 	ACC ← ACC × n 	Produit abs.: Multiplie la valeur n à l'acc.
+MUL n 	ACC ← ACC × R[n] 	Produit dir.: Multiplie le contenu du registre n à l'acc.
+DIV #n 	ACC ← ACC / n 	Quotient abs.: Quotiente l'acc par n.
+DIV n 	ACC ← ACC / R[n] 	Quotient dir.: Quotiente l'acc par le contenu du registre n.
+MOD #n 	ACC ← ACC / n 	Modulo abs.: Réduit l'acc modulo n.
+MOD n 	ACC ← ACC / R[n] 	Modulo dir.: Réduit l'acc modulo le contenu du registre n.
+
+Ruptures de séquence
+JUMP n 	CO ← n 	Saute à l'instruction n.
+JUMZ n 	IF (ACC = 0) CO ← n 	Saute à l'instruction n si acc = 0.
+JUML n 	IF (ACC < 0) CO ← n 	Saute à l'instruction n si acc < 0.
+JUMG n 	IF (ACC > 0) CO ← n 	Saute à l'instruction n si acc > 0.
+STOP 		Arrêt du programme.
+
+Autres
+NOP 	                    	Instrution vide. Ne fait rien.
+
+L'instruction NOP qui ne fait rien (NO OPeration) permet, par exemple, en l'intercalant entre certaines instructions du code, de recaler correctement les instructions de saut en cas de modification du code sans avoir à changer les adresses de saut.
+
+#################################################################################################################################################################################################################################
+ex: 3+2*5
+    +-----------+
+    |   op=+    |
+    |--|     |--|
+    +-----------+
+    /            \
++---+         +-----+
+|v=3|         | op=*|
++---+         +-----+
+             /       \ 
+        +---+       +---+
+        |v=2|       |v=5|
+        +---+       +---+
+codegen(N)-> LOAD#3
+             STORE 1
+             LOAD #2
+             STORE 2
+             LOAD #5 
+             MUL 2
+             ADD 1
+
+
+organisation de la memoire d'un programme C:
+  +--------+}-+
+  |Donnees |  |
+  +--------+  |
+  |pile    |  |-alouer par le systeme
+  +========+  |
+  | Tas    |  |
+  +--------+}-+
+
+organisation de la memoire de la machine RAM:
+  +--------+}
+  |Donnees |
+  +--------+
+  |pile    |
+  |        |
+  |        |
+  |        |
+  +--------+ 
+Pour simplifier le modele on consider que la zone de  donnees est de la taille 64
+et la pile detaille 1024
+
+ii)generateur d'instruction RAM
+L'exemple standart est le suivant:
+  exp:exp_1+exp_2
+    | codegen(exp1)
+    | codegen(exp2)<====RPN
+    codegen(+)
+    En pratique le travaille qui consiste a ecrie une fonction codegen de la forme:
+    codegen(N){
+      switch(N-type):
+        case noeudOP:
+        case feuilleNb:
+    }
+    a laquelle s'ajoute deux variable globale
+    a)Tete(representant le sommet de la pile)
+    b)ligne_num(une representant ne numero de la ligne)
+    
+Type de noeud/
+corespondance des instruction
+  feuilleNb: printf("LOAD #%d\n",N.nb_val)
+  feuilleOP: switch(N.op.ope){
+          case'+':
+            codegen(N.op.noeud[1])
+            printf("STORE %d\n",tete++)
+          case'+':
+            codegen(N.op.noeud[0])
+            printf("ADD %d\n",--tete)
+  }
+declaration ou affectation/
+  var x
+     / \
+update  code
+de la
+table
+des 
+symbole--> ajouter:id("x")
+           retrouver_id ("x")
+a la declaration on ajoute la nouvelle dans la table
+et on lui assigne une adress dans la pile de maniere incremental
+1 +---+ |
+  |   |<+ Il  suffit pour cela d'utuliser l'adress de la derniere variable
+  +---+ |
+  |   |<+
+  +---+
+  |XXX|
+  +---+
+  |   |
+64+---+
+
+affectation
+  LVALUE<-EXP
+  codegen(EXP)
+  ID=retoruver (ID)
+  if(id==NULL)
+    ERROR
+  printf("STORE %d\n",id->adr)
+  ligne_num++;
+            L  R
+  Lvalue ex:x=x+1
+        adre^ ^val
+Instruction condtionellle/
+  SI Exp  ALORS isnt_1
+  SINON inst_2 FSSI
+  codegen(EXP)
+  jumz   ?
+  |-->codegen(inst_1)
+  +-->codegen(inst_2)
+  Pour garantire le nb d'instruciotn d'un noueud il 
+  faut mettre a jour lors de ca creation, le champs ninst corespondant.
+  On sait le nombre d'instruction car l'arbre remonte par le bas.

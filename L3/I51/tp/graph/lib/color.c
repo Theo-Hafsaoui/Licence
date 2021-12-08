@@ -8,12 +8,12 @@
 //####################################################################
 //See course and https://www.geeksforgeeks.org/m-coloring-problem-backtracking-5/
 
-int valid(int vertex,graph g, int* t_color,int i){
+int valid(int cpt_vertex,graph g, int* t_color,int i){
   /*See if for a vertex we did not already assigne 
    * the same color
    */
   for (int j=0; j<g.n; j++) {
-    if((g.T[vertex][j])&&(i==t_color[i]))
+    if((g.T[cpt_vertex][j])&&(i==t_color[j]))
       return 0;
   }
   return 1;

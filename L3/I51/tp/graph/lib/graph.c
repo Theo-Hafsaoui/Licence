@@ -43,4 +43,12 @@ graph rand_graph(int x, float p) {
     return res;
 }
 
-
+int degree(graph g,int vertex_i){
+  int res=0;
+  for (int i=0; i<g.n; i++) {
+    if(g.T[vertex_i][i]){
+      res++;
+    }
+  }
+  return res;
+}

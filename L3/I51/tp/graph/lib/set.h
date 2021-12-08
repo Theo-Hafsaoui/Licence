@@ -1,3 +1,5 @@
+#ifndef SET_H
+#define SET_H
 /*Set of singleton represneted by a single singleton call
  * lead:
  *   +------o
@@ -12,3 +14,4 @@ typedef struct _set_ {
 set singleton(int i);
 void Union(set x, set y);
 set rep(set x);
+#endif
