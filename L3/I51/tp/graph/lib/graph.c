@@ -1,4 +1,5 @@
 #include "graph.h"
+#include "stack.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -52,3 +53,35 @@ int degree(graph g,int vertex_i){
   }
   return res;
 }
+
+int is_cycle(graph g){
+  int* trace=calloc(g.n, sizeof(int));
+  int* done=calloc(g.n, sizeof(int));
+  int v;
+  for (int i=0; i<g.n; i++){
+    done[i]=-42;
+  }
+  stack current=NULL;
+  for (int i=0; i<g.n; i++) {
+      push(&current, i);
+      if(trace[i]==0){
+        done[v]=v;
+        while (current) {
+          v=pop(&current);
+          trace[v]=1;
+          for (int j=0; j<g.n; j++) {
+            if(g.T[v][j]&&trace[j]==0){
+              push(&current, j);
+              done[j]=v;trace[j]=1;
+            }
+            else if (g.T[v][j]&&trace[j]==1&&done[v]!=j) {
+              return 1;
+            }
+          }
+      }
+    }
+    trace[i]=2;
+  }
+  return 0;
+}
+

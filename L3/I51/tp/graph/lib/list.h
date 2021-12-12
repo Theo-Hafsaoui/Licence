@@ -11,7 +11,7 @@ typedef struct _list_ {
 }list;
 
 void print_list(list head);
-void push(list* head, int n);
+void Push(list* head, int n);
 void free_l(list);
 void add(list* l1, list* l2);
 

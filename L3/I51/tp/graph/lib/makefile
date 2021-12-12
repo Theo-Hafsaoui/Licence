@@ -1,6 +1,6 @@
 CC=gcc
 FLAG= -Wall -g -Werror -Wextra -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wwrite-strings -Wunreachable-code
-OBJ= io.o graph.o stack.o connected.o color.o ACM.o eulerian.o
+OBJ= io.o graph.o stack.o connected.o color.o ACM.o eulerian.o cloud.o set.o
 
 libgraph.a: $(OBJ)
 	ar -cr libgraph.a $^
@@ -10,6 +10,8 @@ inout.o: io.c io.h
 	gcc $(FLAG) -c $<
 stack.o: stack.c stack.h
 	gcc $(FLAG) -c $<
+set.o: set.c set.h
+	gcc $(FLAG) -c $<
 connected.o: connected.c connected.h
 	gcc $(FLAG) -c $<
 color.o: color.c color.h
@@ -18,7 +20,11 @@ ACM.o: ACM.c ACM.h
 	gcc $(FLAG) -c $<
 eulerian.o: eulerian.c eulerian.h
 	gcc $(FLAG) -c $<
+cloud.o: cloud.c cloud.h
+	gcc $(FLAG) -c $< -lm
 
+eulerian.o: eulerian.c eulerian.h
+	gcc $(FLAG) -c $<
 test:test.exe
 	./test.exe
 test.exe:Test.o stack.o

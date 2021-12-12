@@ -22,14 +22,15 @@ static int cmp(const void *p1, const void *p2)
   return res;
 }
 
-edge* graph2edge(graph g, int nb_edge){
+edge* graph2edge(graph g, int nb_edge,int* cpt){
  //return a tab of the edge with their weight
  edge* res= calloc(nb_edge, sizeof(edge));
  for (int i=0; i<g.n; i++) {
-   for (int j=i; j<g.n; j++) {
-      res[i].i=i;
-      res[i].j=j;
-      res[i].w=g.W[i][j];
+   for (int j=i+1; j<g.n; j++) {
+      res[*cpt].i=i;
+      res[*cpt].j=j;
+      res[*cpt].w=g.W[i][j];
+      cpt++;
    }
  }
  return res;
@@ -37,25 +38,30 @@ edge* graph2edge(graph g, int nb_edge){
 
 graph kruskhal(graph g){
    //Return an ACM in the form of a graph 
-  graph res = create_graph(g.n);
+  graph res = create_graph(g.n);int cpt=0;
   int nb_edge=(g.n*(g.n-1))/2;
-  edge* l_edge=graph2edge(g,nb_edge);
-  qsort(l_edge,nb_edge,sizeof(edge), &cmp);
+  edge* l_edge=graph2edge(g,nb_edge,&cpt);
+  l_edge = realloc(l_edge, cpt*sizeof(edge));
+  qsort(l_edge,cpt,sizeof(edge), &cmp);
   set* s_vertex=calloc(g.n, sizeof(set));
   for (int i=0; i<g.n; i++) {
     s_vertex[i]=singleton(i);
   }
   edge* alt_res=calloc(nb_edge, sizeof(edge));
-  int cpt=0;
+  cpt=0;
   int x,y;set a,b;
-  for (int i=0; i<nb_edge; i++) {
-    x = l_edge[i].i;
-    y = l_edge[i].j;
-    if ((a = rep(s_vertex[x])) != (b = rep(s_vertex[y]))) {
-      alt_res[cpt]=l_edge[i];
-      cpt++;
+  int Gn=g.n;
+  while (Gn>1) {
+    x = l_edge[cpt].i;
+    y = l_edge[cpt].j;
+    a=rep(s_vertex[x]);
+    b=rep(s_vertex[y]);
+    if (a!=b) {
       Union(a, b);
-     }
+      alt_res[Gn-cpt]=l_edge[cpt];
+      Gn--;
+    }
+    cpt++;
   }
   free(s_vertex);
   free(l_edge);

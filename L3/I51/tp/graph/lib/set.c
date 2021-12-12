@@ -1,8 +1,14 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "set.h"
 
 set rep(set x){
+//TODO update set
 //Return lead of set
+if (x==0) {
+  printf("set equal 0");
+  return x;
+  }
   if (x->lead==x) {
     return x;
   }

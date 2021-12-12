@@ -9,7 +9,7 @@ typedef struct {
   double w;
 }edge;
 
-edge* graph2edge(graph g,int nb_edge);
+edge* graph2edge(graph g,int nb_edge,int* cpt);
 graph kruskhal(graph g);
 list approximation(graph g,int s);
 

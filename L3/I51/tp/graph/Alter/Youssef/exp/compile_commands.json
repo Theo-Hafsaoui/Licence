@@ -1,0 +1,15 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-I/home/youssef/univ-work/L3/S5/I51-Algorithmique-des-graphes/lib",
+            "-o",
+            "test.exe",
+            "test.c"
+        ],
+        "directory": "/home/youssef/univ-work/L3/S5/I51-Algorithmique-des-graphes/exp",
+        "file": "test.c"
+    }
+]

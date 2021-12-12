@@ -23,8 +23,10 @@ int eulerian(int* v,graph g){
   */
   int nb_odd=0;
   for (int i=0; i<g.n; i++) {
-    if(!(degree(g, i)%2))
+    if(!(degree(g, i)%2)){
       nb_odd++;
+      *v=i;
+    }
   }
   switch (nb_odd) {
     case 0:

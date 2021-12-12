@@ -1,0 +1,81 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-g",
+            "connexe.c"
+        ],
+        "directory": "/home/youssef/univ-tln/L3/S5/I51-Algorithmique-des-graphes/lib",
+        "file": "connexe.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-g",
+            "binary.c"
+        ],
+        "directory": "/home/youssef/univ-tln/L3/S5/I51-Algorithmique-des-graphes/lib",
+        "file": "binary.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-g",
+            "eulerian.c"
+        ],
+        "directory": "/home/youssef/univ-tln/L3/S5/I51-Algorithmique-des-graphes/lib",
+        "file": "eulerian.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-g",
+            "inout.c"
+        ],
+        "directory": "/home/youssef/univ-tln/L3/S5/I51-Algorithmique-des-graphes/lib",
+        "file": "inout.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-g",
+            "list.c"
+        ],
+        "directory": "/home/youssef/univ-tln/L3/S5/I51-Algorithmique-des-graphes/lib",
+        "file": "list.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-g",
+            "stack.c"
+        ],
+        "directory": "/home/youssef/univ-tln/L3/S5/I51-Algorithmique-des-graphes/lib",
+        "file": "stack.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-g",
+            "-o",
+            "graph.o",
+            "graph.c"
+        ],
+        "directory": "/home/youssef/univ-tln/L3/S5/I51-Algorithmique-des-graphes/lib",
+        "file": "graph.c"
+    }
+]

@@ -1,0 +1,5 @@
+Q:=RationalField();
+P<T>:=PolynomialRing(Q);
+f:=Interpolation([Q|0,1,2,3,4,5],[Q|0,0,0,0,48,360]);
+f;
+Evaluate(f,6)
