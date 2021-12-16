@@ -72,14 +72,13 @@
   #include <stdio.h>
   #include <ctype.h>
   #include <unistd.h>
-  
   #include "asa.h"
   #include "ts.h"
 
   extern int yylex();
   
 
-#line 83 "parser.c"
+#line 82 "parser.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -111,10 +110,25 @@ enum yysymbol_kind_t
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
   YYSYMBOL_NB = 3,                         /* NB  */
-  YYSYMBOL_4_ = 4,                         /* '+'  */
-  YYSYMBOL_YYACCEPT = 5,                   /* $accept  */
-  YYSYMBOL_PROG = 6,                       /* PROG  */
-  YYSYMBOL_EXP = 7                         /* EXP  */
+  YYSYMBOL_ID = 4,                         /* ID  */
+  YYSYMBOL_SI = 5,                         /* SI  */
+  YYSYMBOL_FSI = 6,                        /* FSI  */
+  YYSYMBOL_SINON = 7,                      /* SINON  */
+  YYSYMBOL_TQ = 8,                         /* TQ  */
+  YYSYMBOL_FTQ = 9,                        /* FTQ  */
+  YYSYMBOL_EQUAL = 10,                     /* EQUAL  */
+  YYSYMBOL_PLUS = 11,                      /* PLUS  */
+  YYSYMBOL_MINUS = 12,                     /* MINUS  */
+  YYSYMBOL_MODULO = 13,                    /* MODULO  */
+  YYSYMBOL_END = 14,                       /* END  */
+  YYSYMBOL_15_ = 15,                       /* '+'  */
+  YYSYMBOL_16_ = 16,                       /* '-'  */
+  YYSYMBOL_17_ = 17,                       /* '*'  */
+  YYSYMBOL_18_ = 18,                       /* '/'  */
+  YYSYMBOL_19_ = 19,                       /* '%'  */
+  YYSYMBOL_YYACCEPT = 20,                  /* $accept  */
+  YYSYMBOL_PROG = 21,                      /* PROG  */
+  YYSYMBOL_EXP = 22                        /* EXP  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -442,19 +456,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   4
+#define YYLAST   15
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  5
+#define YYNTOKENS  20
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  3
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  4
+#define YYNRULES  8
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  7
+#define YYNSTATES  15
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   258
+#define YYMAXUTOK   269
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -471,10 +485,8 @@ static const yytype_int8 yytranslate[] =
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     4,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,    19,     2,     2,
+       2,     2,    17,    15,     2,    16,     2,    18,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -493,14 +505,17 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     1,     2,     3
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    30,    30,    33,    34
+       0,    39,    39,    42,    43,    44,    45,    46,    47
 };
 #endif
 
@@ -516,8 +531,9 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "NB", "'+'", "$accept",
-  "PROG", "EXP", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "NB", "ID", "SI",
+  "FSI", "SINON", "TQ", "FTQ", "EQUAL", "PLUS", "MINUS", "MODULO", "END",
+  "'+'", "'-'", "'*'", "'/'", "'%'", "$accept", "PROG", "EXP", YY_NULLPTR
 };
 
 static const char *
@@ -527,7 +543,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-4)
+#define YYPACT_NINF (-16)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -541,7 +557,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,    -4,     1,    -2,    -4,    -3,    -4
+      11,   -16,    15,   -15,   -16,    11,    11,    11,    11,    11,
+      -6,   -15,   -15,   -15,   -15
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -549,13 +566,14 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     3,     0,     2,     1,     0,     4
+       0,     3,     0,     2,     1,     0,     0,     0,     0,     0,
+       4,     5,     6,     7,     8
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -4,    -4,    -1
+     -16,   -16,     0
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -569,31 +587,34 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     4,     5,     0,     6
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+       6,     7,     8,     9,     1,     4
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     0,     4,    -1,     5
+      15,    16,    17,    18,    19,     5,     6,     7,     8,     9,
+      16,    17,    18,    19,     3,     0
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     6,     7,     0,     4,     7
+       0,     3,    21,    22,     0,    15,    16,    17,    18,    19,
+      22,    22,    22,    22,    22
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,     5,     6,     7,     7
+       0,    20,    21,    22,    22,    22,    22,    22,    22
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     1,     3
+       0,     2,     1,     1,     3,     3,     3,     3,     3
 };
 
 
@@ -1327,25 +1348,49 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* PROG: EXP  */
-#line 30 "parser.y"
+#line 39 "parser.y"
                            { codegen((yyvsp[0].noeud)); }
-#line 1333 "parser.c"
+#line 1354 "parser.c"
     break;
 
   case 3: /* EXP: NB  */
-#line 33 "parser.y"
+#line 42 "parser.y"
                            { (yyval.noeud) = creer_feuilleNb(yylval.nb); }
-#line 1339 "parser.c"
+#line 1360 "parser.c"
     break;
 
   case 4: /* EXP: EXP '+' EXP  */
-#line 34 "parser.y"
+#line 43 "parser.y"
                            { (yyval.noeud) = creer_noeudOp('+', (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
-#line 1345 "parser.c"
+#line 1366 "parser.c"
+    break;
+
+  case 5: /* EXP: EXP '-' EXP  */
+#line 44 "parser.y"
+                           { (yyval.noeud) = creer_noeudOp('+', (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
+#line 1372 "parser.c"
+    break;
+
+  case 6: /* EXP: EXP '*' EXP  */
+#line 45 "parser.y"
+                           { (yyval.noeud) = creer_noeudOp('+', (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
+#line 1378 "parser.c"
+    break;
+
+  case 7: /* EXP: EXP '/' EXP  */
+#line 46 "parser.y"
+                           { (yyval.noeud) = creer_noeudOp('+', (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
+#line 1384 "parser.c"
+    break;
+
+  case 8: /* EXP: EXP '%' EXP  */
+#line 47 "parser.y"
+                           { (yyval.noeud) = creer_noeudOp('+', (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
+#line 1390 "parser.c"
     break;
 
 
-#line 1349 "parser.c"
+#line 1394 "parser.c"
 
       default: break;
     }
@@ -1569,7 +1614,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 37 "parser.y"
+#line 50 "parser.y"
 
 
 int main( int argc, char * argv[] ) {

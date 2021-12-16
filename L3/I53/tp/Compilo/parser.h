@@ -54,7 +54,18 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    NB = 258                       /* NB  */
+    NB = 258,                      /* NB  */
+    ID = 259,                      /* ID  */
+    SI = 260,                      /* SI  */
+    FSI = 261,                     /* FSI  */
+    SINON = 262,                   /* SINON  */
+    TQ = 263,                      /* TQ  */
+    FTQ = 264,                     /* FTQ  */
+    EQUAL = 265,                   /* EQUAL  */
+    PLUS = 266,                    /* PLUS  */
+    MINUS = 267,                   /* MINUS  */
+    MODULO = 268,                  /* MODULO  */
+    END = 269                      /* END  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -63,13 +74,16 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 13 "parser.y"
+#line 12 "parser.y"
 
   int nb;
+  int ID;
   struct asa * noeud;
+  char id[16];
+  //Les id ne peuvent pas faire plus de 16 charactere
  
 
-#line 73 "parser.h"
+#line 87 "parser.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

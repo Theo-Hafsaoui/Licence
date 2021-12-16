@@ -1,0 +1,113 @@
+
+
+##################################################
+Creattion de la base de donner:
+postgres=# \c tp2
+You are now connected to database "tp2" as user "postgres".
+tp2=# CREATE TABLE Spectacle
+(nomS VARCHAR(15) NOT NULL PRIMARY KEY,
+Nbplaces INTEGER NOT NULL,
+NbplacesLibres INTEGER NOT NULL,
+tarif DECIMAL(10,2) NOT NULL
+) ;
+CREATE TABLE
+tp2=# CREATE TABLE Client
+(nomC VARCHAR(10) NOT NULL PRIMARY KEY,
+Solde integer NOT NULL
+);
+CREATE TABLE
+tp2=# CREATE TABLE Reservation
+(nomC VARCHAR(10) NOT NULL references Client,
+nomS VARCHAR(15) NOT NULL references Spectacle,
+NbplacesReservees INT NOT NULL,
+PRIMARY KEY (nomC, nomS)
+);
+CREATE TABLE
+tp2=#
+tp2=#
+
+##################################################
+Insertion Valeur
+tp2=# insert into Client values ('Quentin', 50);
+INSERT 0 1
+tp2=# insert into Client values ('Gregoire', 50);
+INSERT 0 1
+tp2=# insert into Spectacle values ('Harry potter', 250,250,20);
+INSERT 0 1
+##################################################
+En paralelle:
+La réservation de Quentin : T1 dans le terminal 0
+begin transaction;
+insert into Reservation values ('Quentin','Harry potter',2);update spectacle set nbplaceslibres =248 where noms='Harry potter';
+update client set solde=10 where nomc='Quentin';
+commit;
+La réservation de Gregoire : T2 dans le terminal 1
+begin transaction;
+insert into Reservation values ('Gregoire','Harry potter',5);update spectacle set nbplaceslibres =243 where noms='Harry potter';
+update client set solde=0 where nomc='Gregoire';
+commit;
+rmq: Erreur apres le commit
+##################################################
+Reinitialisation...
+update client set solde =50 where nomc='Quentin';
+update client set solde =50 where nomc='Gregoire';
+update spectacle set nbplaceslibres =250 where noms='Harry potter';
+update spectacle set tarif = 10 where noms='Harry potter';
+delete from reservation where nbplacesreservees >0;
+##################################################
+En serie:
+La réservation de Quentin : T1
+begin transaction;
+insert into Reservation values ('Quentin','Harry potter',2);update spectacle set nbplaceslibres =248 where noms='Harry potter';
+update client set solde=10 where nomc='Quentin';
+commit;
+Baisse de prix pour gregoir...
+update spectacle set tarif =10 where noms='Harry potter';
+
+La réservation de Gregoire : T2
+begin transaction;
+insert into Reservation values ('Gregoire','Harry potter',5);update spectacle set nbplaceslibres =243 where noms='Harry potter';
+update client set solde=0 where nomc='Gregoire';
+commit;
+##################################################
+Imaginons une baisse des prix pendant l'achat des billet de quentin.
+
+La réservation de Quentin : T1 dans le terminal 0
+begin transaction;
+insert into Reservation values ('Quentin','Harry potter',2);update spectacle set nbplaceslibres =248 where noms='Harry potter';
+commit;
+La baisse de prix : B1 dans le terminal 1
+begin transaction;
+update spectacle set tarif = 5 where noms='Harry potter';
+commit;
+encore une fois apres l'update du prix le terminal concurent etait bloquer avat le commit
+
+##################################################
+set session transaction isolation level read uncommitted; les begin et commit seront implicite....
+Harry potter change de nom pour une contrefacon choinoise Happy potter
+suite a une erreur et qunetin veut voir les spectacle..
+update nom dans le terminal T1
+update spectacle set nom = 'Happy potter' where noms='Harry potter';
+Quentin veut voir harry potter:
+select * from spectacle ;
+Et.... on peut pas voir les donner uncommitted, le mode uncommitted et donc l'equivalent du mode commited
+##################################################
+set session transaction isolation level read committed; les begin et commit seront implicite....
+Harry potter change de nom pour une contrefacon choinoise Happy potter
+suite a une erreur et qunetin veut voir les spectacle sauf que la les changement sont commiter.
+update nom dans le terminal T1
+update spectacle set nom = 'Happy potter' where noms='Harry potter';
+Quentin veut voir harry potter:
+select * from spectacle ;
+select * from spectacle ;
+Dans le deuxieme  select on peut voir les info commiter.
+##################################################
+set session transaction isolation level repeatable read;
+update nom dans le terminal T1
+update spectacle set nom = 'Happy potter' where noms='Harry potter';
+Quentin veut voir harry potter:
+select * from spectacle ;
+select * from spectacle ;
+Ici le nom ne change pas...
+##################################################
+

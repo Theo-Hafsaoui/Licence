@@ -6,6 +6,7 @@
 %option nounput
 %option noinput
 
+//Dabord les mots clee <--Important pour eviter les conflits
 ALGO     ALGO
 DEBUT    DEBUT
 FIN      FIN
@@ -15,7 +16,6 @@ SINON    SINON
 VAR      VAR
 TQ       TQ
 FTQ      FTQ
-PLUS     +
 EQUAL    =
 MINUS    -
 MODULO   %
@@ -33,10 +33,11 @@ ID      {LETTRE}+
 {TQ} {return TQ;}
 {EQUAL} {return EQUAL;}
 {FTQ} {return FTQ;}
-{PLUS} {return PLUS;}
-{MINUS} {return MINUS;}
+"+" {return PLUS;}
+"->" {return AFFECTATION;}
+"-" {return MINUS;}
 {MODULO} {return MODULO;}
 {END} {return END;}
-{ID} {yyval.id= ID, return ID;}
+{ID} {yylval.ID= ID; return ID;}
 .         { fprintf(stderr, "[err lexer] caractere inconnu %c\n",yytext[0]); return 1;}
 %%
