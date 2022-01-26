@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.11.26)  8 DEC 2021 11:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.11.26)  17 DEC 2021 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -554,28 +554,29 @@ LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 32.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 39.
+(hyperref)                removing `\@ifnextchar' on input line 38.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Logotp.png>] (./Cm.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Logotp.png>] [2]
+(./Cm.aux)
 Package rerunfilecheck Info: File `Cm.out' has not changed.
 (rerunfilecheck)             Checksum: 23DC2AFB3D76B92F1A263959C242560A;209.
  ) 
 Here is how much of TeX's memory you used:
- 14108 strings out of 478994
- 198481 string characters out of 5864750
- 583746 words of memory out of 5000000
+ 14109 strings out of 478994
+ 198487 string characters out of 5864750
+ 590746 words of memory out of 5000000
  31416 multiletter control sequences out of 15000+600000
  411955 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  82i,6n,88p,276b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on Cm.pdf (1 page, 50421 bytes).
+Output written on Cm.pdf (2 pages, 52517 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
+ 33 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
  14 words of extra memory for PDF output out of 10000 (max. 10000000)
 
