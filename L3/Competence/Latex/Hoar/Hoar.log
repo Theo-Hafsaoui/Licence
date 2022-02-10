@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.31)  7 FEB 2022 18:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.31)  10 FEB 2022 08:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -144,22 +144,26 @@ Package pdftex.def Info: ./img/PHoar.jpg  used on input line 31.
 \tf@toc=\write3
 \openout3 = `Hoar.toc'.
 
- (./intro.tex) (./logique.tex) (./quicksort.tex) [1
+ (./intro.tex
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6.
+ (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)) (./logique.tex) (./quicksort.tex) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/PHoar.jpg>] (./Hoar.aux) ) 
 Here is how much of TeX's memory you used:
- 3370 strings out of 478353
- 54042 string characters out of 5854635
- 365147 words of memory out of 5000000
- 21484 multiletter control sequences out of 15000+600000
- 410732 words of font info for 39 fonts, out of 8000000 for 9000
+ 3393 strings out of 478353
+ 54684 string characters out of 5854635
+ 366147 words of memory out of 5000000
+ 21502 multiletter control sequences out of 15000+600000
+ 411735 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,6n,62p,181b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Hoar.pdf (1 page, 140129 bytes).
+ 55i,6n,62p,261b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on Hoar.pdf (1 page, 172888 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 50 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
