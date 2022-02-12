@@ -1,4 +1,15 @@
 import tkinter as tk
+###Global
+x1,y1=200,200
+x2,y2=400,400
+W=[800,800]
+Vp=[200,200]
+Ov=[200,200]
+###
+
+def create_vp():
+    rec=create_rectangle(cnv,x1,y1,x2,y2)
+    return rec
 
 def file2point(file_name):
     """
@@ -29,12 +40,10 @@ def create_rectangle(cnv,x1,y1,x2,y2):
     cnv.pack()
     return rec
 
-
 def wc2nc(l_x,vp,wd,Ov):
     """
     return the projection from the
     Euclidian space to the screen one
-
     K[0]=x
     K[1]=y
     """
@@ -43,8 +52,33 @@ def wc2nc(l_x,vp,wd,Ov):
     return [Vc_x,Vc_y]
 
 def draw_from_file():
-#TODO
-    pass
+    """
+    Draw with point from the file
+    point.point
+    """
+    list_p=file2point("point.point")
+    for i in range(0,len(list_p),2):
+        Vc=wc2nc([list_p[i],list_p[i+1]],Vp,W,Ov)
+        print("Vc=",Vc)
+        create_point(cnv,Vc[0],Vc[1])
+
+def draw_poly(l_poly,n):
+    """
+    Draw with point from the list
+    of monome
+    a**n+b**n-1+...z**0
+    """
+
+
+def Horner (l,a):
+    """
+    Compute in an efficient way
+    a polynome
+    """
+    r=l[0]
+    for i in range(1,len(l)):
+        r=(r*a)+l[i]
+    return r
 
 #############################################
 #############################################
@@ -52,21 +86,8 @@ def draw_from_file():
 
 if __name__ == "__main__":
     Master = tk.Tk()
-    x1,y1=200,200
-    x2,y2=400,400
-    W=[800,800]
-    Vp=[200,200]
-    Ov=[200,200]
     Master.attributes('-type', 'dialog')
     Master.geometry("800x800")
     cnv=tk.Canvas(Master,height=800,width=800,background="#282828")
-    rec=create_rectangle(cnv,x1,y1,x2,y2)
-    list_p=file2point("point.point")
-    for i in range(0,len(list_p),2):
-        Vc=wc2nc([list_p[i],list_p[i+1]],Vp,W,Ov)
-        print("Vc=",Vc)
-        create_point(cnv,Vc[0],Vc[1])
-    #cnv.move(rec,200,200)
-    #create_point(cnv,300,300)
-    #create_point(cnv,150,150)
+    create_vp()
     Master.mainloop()
