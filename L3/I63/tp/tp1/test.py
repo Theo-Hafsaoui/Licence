@@ -1,4 +1,5 @@
 import tkinter as tk
+#Transformation d’une fenêtre d’observation vers l’espace écran
 ###Global
 x1,y1=200,200
 x2,y2=400,400
@@ -62,22 +63,29 @@ def draw_from_file():
         print("Vc=",Vc)
         create_point(cnv,Vc[0],Vc[1])
 
-def draw_poly(l_poly,n):
+def draw_poly(xmin,xmax,l_poly,step):
     """
     Draw with point from the list
     of monome
     a**n+b**n-1+...z**0
     """
+    for i in range(xmin,xmax,step):
+        x=i
+        y=Horner(l_poly,x)
+        Vc=wc2nc([x,y],Vp,W,Ov)
+        print("Vc=",Vc)
+        create_point(cnv,Vc[1],Vc[0])
 
 
-def Horner (l,a):
+
+def Horner (l,x):
     """
     Compute in an efficient way
     a polynome
     """
     r=l[0]
     for i in range(1,len(l)):
-        r=(r*a)+l[i]
+        r=(r*x)+l[i]
     return r
 
 #############################################
@@ -89,5 +97,7 @@ if __name__ == "__main__":
     Master.attributes('-type', 'dialog')
     Master.geometry("800x800")
     cnv=tk.Canvas(Master,height=800,width=800,background="#282828")
+    draw_from_file()
     create_vp()
+    draw_poly(0,25,[1,2,3],5)
     Master.mainloop()
