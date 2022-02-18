@@ -4,11 +4,58 @@
 
   \section{Le Quicksort}
   \subsection{Presentation}
-  Le \emph{Quicksort} ou trie rapide dans la langue de moliere, est un algorithme de trie qui est \ldots \ rapide.
-  De maniere plus concrete il s'agit d'un trie qui se raproche des limites possible d'un trie comparatife sans
+  Le \emph{Quicksort} ou trie rapide dans la langue de Molière, est un algorithme de trie qui est \ldots \ rapide.
+  De manière Plus concrète il s'agit d'un trie qui se rapproche des limites possible d'un trie comparatifs sans
   propriete connue.
  %TODO Rajouter source zannoti http://zanotti.univ-tln.fr/ALGO/II/BorneTrisComparatifs.html
   %add figure
+  \begin{center}
+  \large{\color{Nred}      }
+% src:https://tex.stackexchange.com/questions/573966/copy-the-merge-sort-recursion-tree-from-tikz-example-with-forest-package
+  \begin{tikzpicture}[level/.style={sibling distance=30mm/#1}]
+  \node [color=Nblack] (z){$[38,27,43,3,9,82,10]$}
+    child {node [color=nred] (a) {$[39,27,43,3]$}
+      child {node [color=nred] (b) {$[39,27]$}
+        child {node {$\vdots$}
+          child {node [color=nred] (d) {$39$}}
+          child {node [color=nred] (e) {$27$}}
+        } 
+        child {node {$\vdots$}}
+      }
+      child {node [color=Nblack] (g) {\ldots}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+    }
+    child {node [color=nblue] (j) {$[9,82,10]$}
+      child {node [color=Nblack] (k) {$\ldots$}
+        child {node {$\vdots$}}
+        child {node {$\vdots$}}
+      }
+    child {node [color=nblue] (l) {$[82,10]$}
+      child {node {$\vdots$}}
+      child {node (c){$\vdots$}
+        child {node [color=nblue] (o) {$82$}}
+        child {node [color=nblue] (p) {$10$}
+          child [grow=right] {node (q) {  } edge from parent[draw=none]
+            child [grow=right] {node (q) {  } edge from parent[draw=none]
+              child [grow=up] {node (r) {  } edge from parent[draw=none]
+                child [grow=up] {node (s) {  } edge from parent[draw=none]
+                  child [grow=up] {node (t) {  } edge from parent[draw=none]
+                    child [grow=up] {node (u) {  } edge from parent[draw=none]}
+                  }
+                }
+              }
+              child [grow=down] {node (v) {  }edge from parent[draw=none]}
+            }
+          }
+        }
+      }
+    }
+  };
+  \end{tikzpicture}
+
+  \end{center}
 
   Ce trie repose sur le principe du diviser pour mieux regner. Si en politique cela consiste a augmenter le nombre
   de candidats d'oposition, en informatique cela consiste en trois etapes:
@@ -17,11 +64,28 @@
       explique le retour recurent du $\log_2$ dans la complexiter de cette famille d'algorithme.
  %TODO Lien vers la dite famille
     \item \textbf{\color{Nred}Regner},cette partie est surement la plus evidente car c'est la que l'ont le trie.
-    \item \textbf{\color{Nred}Reunir}, Enfin reunie afin d'obtenir notre resultat final, c'est d'ailleur cette partie qui donne
-    le charactere linaire des trie \emph{"divide and conquere"}
-
-    Le trie dans l'exemple n'est pas le trie rapide, mais le trie fusion. 
-%rajouter source dalinar
+    \item \textbf{\color{Nred}Reunir}, Enfin reunie afin d'obtenir notre resultat final, c'est d'ailleur cette
+    partie qui donne le charactere linaire des trie \emph{"divide and conquere"}
   \end{enumerate}
+    Le trie dans l'exemple n'est pas le trie rapide, mais le trie fusion un trie baser lui aussi sur le \emph{Divide and 
+    conquere}, il est a noter que la figure ne reprensente que la phase de division et pas la fusion elle meme, en effet celle 
+    ci est specifique au merge sort.
+
+%rajouter source dalinar
+  \subsection{Principe et implementation}
+  Le trie rapide,comme dit precedament, repose sur le \emph{divide and conquere} plus particulierment autour d'un \textbf{\color{nred}pivot}.
+  Ce pivot possede neanmoins une propriete interesante, a la suite d'un \emph{partitionment} tout les element a gauche lui sont inferieur et respectivment, ce que l'ont peut resumer par :
+  $$
+    \forall (i,j)\in[p,q]\times[q+1,r],\quad L[i] \leq L[j].
+  $$
+  Cette propriete implique une infomation inportante, \textbf{tout les partition sont trier}, ainsi et de manière naturelle.
+  on peut juste ce contenter de reproduire cette procedure de maniere recursive.
+  %figure de la video
+  %explication
+  \lstinputlisting[style=C]{./src/Quicksort.c}
+  \subsection{Complexite}
+  De manière étonnante pour un trie utiliser aussi fréquemment sont pire cas est en $\Theta(n^2)$, neanmoins il existe
+  de nombreuse variante de ce trie qui résolve ce problème. Un fix rapide est par exemple le choix du pivot de maniere al\e atoire
+
 
 \end{document}

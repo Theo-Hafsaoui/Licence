@@ -4,45 +4,76 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
+%%Mon clavier est qwerty, pas d'accent donc pour moi
+\newcommand{\e}{\'{e}}
+\usepackage{listings}
+\usepackage{amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+%%Header
+%TODO
+  %\usepackage{fancyhdr}
+  %\pagestyle{fancy}
+%%
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{pagecolor,lipsum}
-%Nordic color
-\definecolor{Nblack}{HTML}{3b4252}
-\definecolor{NBLACK}{HTML}{2e3440}
-\definecolor{Nwhite}{HTML}{eceff4}
-\definecolor{Nblue}{HTML}{5e81ac}
-\definecolor{Nred}{HTML}{bf616a}
-\definecolor{nred}{HTML}{d08770}
-\definecolor{Nurl}{HTML}{8fbcbb}
-\definecolor{nblue}{HTML}{81a1c1}
-\let\oldtextbf\textbf
-\renewcommand{\textbf}[1]{\textcolor{NBLACK}{\oldtextbf{#1}}}
-\makeatletter
-\newcommand{\globalcolor}[1]{%
-  \color{#1}\global\let\default@color\current@color
+%%Nordic color
+  \definecolor{Nblack}{HTML}{3b4252}
+  \definecolor{NBLACK}{HTML}{2e3440}
+  \definecolor{Nwhite}{HTML}{eceff4}
+  \definecolor{nwhite}{HTML}{e5e9f0}
+  \definecolor{Nblue}{HTML}{5e81ac}
+  \definecolor{Nred}{HTML}{bf616a}
+  \definecolor{nred}{HTML}{d08770}
+  \definecolor{Nurl}{HTML}{8fbcbb}
+  \definecolor{nblue}{HTML}{81a1c1}
+  \let\oldtextbf\textbf
+  \renewcommand{\textbf}[1]{\textcolor{NBLACK}{\oldtextbf{#1}}}
+  \makeatletter
+  \newcommand{\globalcolor}[1]{%
+    \color{#1}\global\let\default@color\current@color
+  }
+  \makeatother
+  \AtBeginDocument{\globalcolor{Nblack}}
+  \titleformat{\section}
+  {\color{Nblue}\normalfont\Large\bfseries}
+  {\color{Nblue}\thesection}{1em}{}
+  \titleformat{\subsection}
+  {\color{nblue}\normalfont\large\bfseries}
+  {\color{nblue}\thesubsection}{1em}{}
+  \hypersetup{
+      colorlinks=true,
+      linkcolor=nblue,
+      filecolor=magenta,      
+      urlcolor=cyan,
+      pdftitle={Overleaf Example},
+      pdfpagemode=FullScreen,
+      }
+\lstdefinestyle{C}{
+    backgroundcolor=\color{nwhite},   
+    commentstyle=\color{green},
+    keywordstyle=\color{nred},
+    frame=single
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
 }
-\makeatother
-\AtBeginDocument{\globalcolor{Nblack}}
-\titleformat{\section}
-{\color{Nblue}\normalfont\Large\bfseries}
-{\color{Nblue}\thesection}{1em}{}
-\titleformat{\subsection}
-{\color{nblue}\normalfont\large\bfseries}
-{\color{nblue}\thesubsection}{1em}{}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=nblue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={Overleaf Example},
-    pdfpagemode=FullScreen,
-    }
-%
+%%
 
 \begin{document}
 \pagecolor{Nwhite}
+
 %Title Page of Hoar
 \begin{center}
   \vspace*{1cm}
