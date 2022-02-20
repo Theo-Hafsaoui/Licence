@@ -3,6 +3,21 @@
 \begin{document}
 
   \section{La logique de Hoare}
-  test de la fesabilite
+  %src https://www.cs.cmu.edu/~aldrich/courses/15-819O-13sp/resources/hoare-logic.pdf
+  \subsection{Presentation}
+    Le but de la \emph{Logique de Hoare} est de permettre un systeme formelle de raisonement 
+    sur la justesse d'un programme
+    Plus concrettement comme chacun le sait il existe des systeme critique pour lequel l'incertitude
+    n'est pas acceptable.
+    Cette logique est baser sur les \textbf{\color{nred}{ triplet de Hoare}},
+    ce triplet de la forme $\{P\} S \{Q\}$ est respectivment composer de :
+    %TODO ajouter plus d'explication
+    \begin{itemize}
+      \item[\ding{227}] $P$ Une precondition
+      \item[\ding{227}] $S$ Le programme
+      \item[\ding{227}] $Q$ Une postcondition
+    \end{itemize}
+    Les precondition est postcondition sont deux assertion appartenant a la \href{http://zanotti.univ-tln.fr/MD/MD-Ensembles.html#pr%C3%A9dicats}{logique des predicats}.
+  \subsection{M\e thode}
 
 \end{document}

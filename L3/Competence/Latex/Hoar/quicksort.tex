@@ -54,7 +54,6 @@
     }
   };
   \end{tikzpicture}
-
   \end{center}
 
   Ce trie repose sur le principe du diviser pour mieux regner. Si en politique cela consiste a augmenter le nombre
@@ -83,9 +82,13 @@
   %figure de la video
   %explication
   \lstinputlisting[style=C]{./src/Quicksort.c}
-  \subsection{Complexite}
+  \subsection{Complexit\e}
   De manière étonnante pour un trie utiliser aussi fréquemment sont pire cas est en $\Theta(n^2)$, neanmoins il existe
   de nombreuse variante de ce trie qui résolve ce problème. Un fix rapide est par exemple le choix du pivot de maniere al\e atoire
+
+  Concernant ce complexiter dans le meilleur cas l'algorithme \texttt{partionner} et en $\Theta(n)$, en effet les deux indice
+  $i$ et $j$ sont respectivement incrementer et decrementer, et ceux jusqu'au pivot donc c'est operation se feront donc $n$ fois.
+  On peut s'etttoner de ces resultat mitiger et se demander pourquoi cette algo est si utiliser.
 
 
 \end{document}
