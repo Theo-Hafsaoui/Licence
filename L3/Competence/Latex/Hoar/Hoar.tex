@@ -11,6 +11,7 @@
 \usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usetikzlibrary{fadings}
 \usetikzlibrary{trees}
 %%Header
 %TODO
@@ -71,10 +72,9 @@
     language=C
 }
 %%
-
 \begin{document}
 \pagecolor{Nwhite}
-
+\begin{titlepage}
 %Title Page of Hoar
 \begin{center}
   \vspace*{1cm}
@@ -99,7 +99,15 @@
   \begin{minipage}{0.3\textwidth}
     \includegraphics[width=\textwidth]{./img/PHoar.jpg}
   \end{minipage}
+  \noindent
+  \vfill
+  \makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
+{\huge \color{Nblue}{Édition scientifique avec \LaTeX}}
+\vskip\baselineskip
+\noindent
+\color{nblue}\today
 \end{center}
+\end{titlepage}
 %End title Page of Hoar
 
   \tableofcontents
