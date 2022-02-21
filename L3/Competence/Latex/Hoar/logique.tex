@@ -4,7 +4,7 @@
 
   \section{La logique de Hoare}
   %src https://www.cs.cmu.edu/~aldrich/courses/15-819O-13sp/resources/hoare-logic.pdf
-  \subsection{Presentation}
+  \subsection{Pr\e sentation}
     Le but de la \emph{Logique de Hoare} est de permettre un systeme formelle de raisonement 
     sur la justesse d'un programme
     Plus concrettement comme chacun le sait il existe des systeme critique pour lequel l'incertitude
@@ -18,6 +18,24 @@
       \item[\ding{227}] $Q$ Une postcondition
     \end{itemize}
     Les precondition est postcondition sont deux assertion appartenant a la \href{http://zanotti.univ-tln.fr/MD/MD-Ensembles.html#pr%C3%A9dicats}{logique des predicats}.
+    Un triplet de hoare est correct si la condition initial $P$ est verifier est $S$ executer ce qui implique que
+    $Q$ est vrai.
+
+    \emph{exemple:}
+    \begin{center}
+     $\{x = 5\} x := x\times 2 \{x > 0\}$ 
+    \end{center}
+    Ce triplet est clairement correct, en effet si $x=5$ est que $x$ est multplier par deux, $x$ est bien sur 
+    superieur a 0.
+
+
   \subsection{M\e thode}
+  Maintenant ces triplet possede des propriete importante pour nous assurer de la bonne utulisation de
+  ces lego dans le cadre de nos preuve de justesse.
+
+
+
+
+  \subsection{Application}
 
 \end{document}

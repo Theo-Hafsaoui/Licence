@@ -1,11 +1,13 @@
 \documentclass[11pt,a4paper,French]{article}
 \usepackage{subfiles}
 \usepackage{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{pifont}
 \usepackage[french]{babel}
-%%Mon clavier est qwerty, pas d'accent donc pour moi
+%%Mon clavier est en qwerty, pas d'accent donc pour moi
 \newcommand{\e}{\'{e}}
 \usepackage{listings}
 \usepackage{amsfonts}
@@ -71,6 +73,8 @@
     tabsize=2,
     language=C
 }
+\newtcbtheorem[number within=section]{mytheo}{Propri\e t\e}%
+{colback=Nblue!5,colframe=Nblue!35!NBLACK,fonttitle=\bfseries}{th}
 %%
 \begin{document}
 \pagecolor{Nwhite}
@@ -97,7 +101,7 @@
     there are no obvious errors.\frq{}}
   \end{minipage}
   \begin{minipage}{0.3\textwidth}
-    \includegraphics[width=\textwidth]{./img/PHoar.jpg}
+    \includegraphics[width=\textwidth]{./img/PHoar.png}
   \end{minipage}
   \noindent
   \vfill
