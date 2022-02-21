@@ -1,5 +1,9 @@
 \documentclass[11pt,a4paper,French]{article}
 \usepackage{subfiles}
+\usepackage{float}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
 \usepackage{hyperref}
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
@@ -9,6 +13,7 @@
 \usepackage[french]{babel}
 %%Mon clavier est en qwerty, pas d'accent donc pour moi
 \newcommand{\e}{\'{e}}
+\newcommand{\h}{Hoare}
 \usepackage{listings}
 \usepackage{amsfonts}
 \usepackage{graphicx}
@@ -21,6 +26,7 @@
   %\pagestyle{fancy}
 %%
 \usepackage{xcolor}
+\newtheorem{definition}{Definition}[section]
 \usepackage{titlesec}
 \usepackage{pagecolor,lipsum}
 %%Nordic color
@@ -73,6 +79,9 @@
     tabsize=2,
     language=C
 }
+\rhead{\color{nblue}Hoare}
+\lhead{\color{nblue}Rendue \LaTeX}
+\rfoot{Page \thepage}
 \newtcbtheorem[number within=section]{mytheo}{Propri\e t\e}%
 {colback=Nblue!5,colframe=Nblue!35!NBLACK,fonttitle=\bfseries}{th}
 %%
