@@ -1,4 +1,4 @@
-\babel@toc {french}{}
+\babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}\color {OrangeHaf} Chapitre 0: Une premiere approche du compilateur}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Introduction}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Historique}{2}{subsection.1.2}%

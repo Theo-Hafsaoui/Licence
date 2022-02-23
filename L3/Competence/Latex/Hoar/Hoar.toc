@@ -1,9 +1,0 @@
-\babel@toc {french}{}\relax 
-\contentsline {section}{\numberline {1}La logique de Hoare}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Pr\'{e}sentation}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}M\'{e}thode}{2}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Application}{3}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Le Quicksort}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Presentation}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Principe et implementation}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Complexit\'{e}}{5}{subsection.2.3}%

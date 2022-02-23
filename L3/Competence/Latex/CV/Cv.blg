@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Cv.aux
+The style file: plain.bst
+Database file #1: publication.bib
+Warning--empty journal in lamport1986latex
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            507 strings with 4203 characters,
+and the built_in function-call counts, 451 in all, are:
+= -- 39
+> -- 14
+< -- 1
++ -- 7
+- -- 4
+* -- 21
+:= -- 86
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 7
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 22
+empty$ -- 40
+format.name$ -- 4
+if$ -- 89
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 3
+newline$ -- 13
+num.names$ -- 4
+pop$ -- 13
+preamble$ -- 1
+purify$ -- 6
+quote$ -- 0
+skip$ -- 14
+stack$ -- 0
+substring$ -- 11
+swap$ -- 2
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 6
+warning$ -- 1
+while$ -- 4
+width$ -- 3
+write$ -- 22
+(There was 1 warning)

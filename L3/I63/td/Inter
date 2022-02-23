@@ -1,0 +1,14 @@
+ex1/
+  \omega=Ad,Dd,Cd,Ed,Bd,Bf,Af,Cf,Df,Ef
+  sachant que Xd=[Xx,Xy,type]
+ex2/
+  \omega=Ad,Dd,ADi,Cd,Ed,Bd,DBi,Bf,Af,Cf,Df,Ef
+  \to=Sa,Sd
+
+  \omega=Dd,Ad,ADi,Cd,Ed,Bd,Bf,Af,Cf,Df,Ef
+  \to=Sa,Sd
+  pas de nouveaux croisement
+  
+  \omega=Dd,Ad,ADi,Cd,CBi,Ed,Bd,Bf,Af,Cf,Df,Ef
+  \to=Sa,Sd,Sc,Sb
+  pas de nouveaux croisement
