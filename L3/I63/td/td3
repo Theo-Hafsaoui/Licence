@@ -1,0 +1,35 @@
+1/
+Une pile de pixel
+2/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Algorithme 1 : Return_luminosity 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+entree: tableau bi-dimensinelle T, entier pos
+output: entier sur un octet
+donner:R V B des entier 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    R=T[i][0]
+    V=T[i][1]
+    B=T[i][2]
+    Y=0.30R+0.59V+0.11B
+    return Y
+3/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Algorithme 2 : Return_pos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+entree: Pok un tableau vide de pixel,
+Pixel de reference SX, tableau bi-dimensinelle T, Pile SP(avec SX au depart),entier Seuil
+output: Tableau de pixel
+donner:R V B des entier 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    cx=depiler SP
+    pok+=cx
+    D2=Return_luminosity(SX)
+    pour 8 pixelI adjacent:
+      D1=Return_luminosity(pixelI)
+      si(D1-D2<Seuil):
+        empiler pixel sur SP
+  si pile vide alors:
+    return Pok
+  return Return_pos(SX,T,SP,Seuil)
+  

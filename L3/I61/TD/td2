@@ -40,3 +40,23 @@ ex2:
   GG=8/100
   bG=27/100
   b=64/100
+
+  ex3/
+    3/Im(C,S)=H(c)-H(C|S)
+        0.9852-0.857 = 0.1281
+    4/Im(C,R)=H(c)-H(C|R)
+        0.9852+6/7*(2/6log2(2/6)+4/6log2(4/6)+)1/7log(1) 1 car sahchant que le ryhtme est
+                                                            sup a 95 on est sur
+
+  IM(C;E)=0.9852+5/7(2/5log(2/5)+3/5log2(3/5))+2/7(1/2log2(1/2))=0.0059
+
+  donc Im cs est mieux car supeieur
+  ex4/
+   Im(pr,qch)=13/15*log2(13/15)
+   cor
+   IM(P,Q)=H(P)+H(Q)-H(P,Q)
+   voir photo
+   3/
+   IM(P,Q)=H(P)+H(Q)-H(P,Q)
+   H(Q)=19/76+18/76+76-19-18/76 +log2
+

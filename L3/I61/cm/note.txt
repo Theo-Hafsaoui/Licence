@@ -1,0 +1,3 @@
+canal de transmition : 
+  -emmeteur receveur
+  -probleme alteration/coupure/perte

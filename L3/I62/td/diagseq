@@ -1,0 +1,21 @@
+syteme		biblio
+|<-recherche-----|
+|                |
+|--valide--ad--->|[voir E1]
+|                |
+|<-verifie-------|
+|                |
+|-valide emprunt>|
+|                |
+|<recherche-ouv--|
+|                |
+|-est-la-------->|
+|                |
+|<--disponbiel---|
+|                |
+|-confirme------>|
+|                |
+|<--decrment-----|
+|                |
+|<--attribue-----|
+|                |

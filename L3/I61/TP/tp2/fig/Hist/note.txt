@@ -1,0 +1,7 @@
+Type/rien ?
+redshift/Quantils
+Metalicite/classe d'amplitude
+MAsse/Ecart type
+Emplacment/Quantils
+densite/Quantification en classes en progression arithmétique ou
+géométrique
