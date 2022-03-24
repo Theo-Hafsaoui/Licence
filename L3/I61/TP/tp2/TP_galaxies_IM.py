@@ -6,12 +6,13 @@ from astropy import units as u
 from astropy.coordinates import SkyCoord
 from astropy.coordinates import Distance
 import csv
+import copy
 import math as math
 
 """
 * Introduction :
 
-Dans ce TP, nous allons expérimenter avec les données de l'article 
+Dans ce TP, nous allons expérimenter avec les données de l'article
 "How much a galaxy knows about its large-scale environment?: An information theoretic perspective" analysé en TD.
 Comme nous l'avons vu en TD, cet article a révélé une corrélation intéressante entre type morphologique et emplacement des galaxies à l'aide de l'information mutuelle. Nous allons explorer cette relation un peu plus, notamment en considérant des variables additionelles afin de calculer des informations d'interaction.
 
@@ -152,17 +153,11 @@ def compute_densities(galaxies, catalog, radius):
     catalog: catalogue of galaxies in the cube + in the buffer space of size radius
     radius: neighbourhood (in Mpc), type float
     """
-
     idxc, idxcatalog, d2d, d3d = catalog.search_around_3d(galaxies, radius * u.Mpc)
-
     densites = []
-
     for i in range(0, len(galaxies)):
-
         ind_i = np.where(idxc == i)
-
         densites += [ind_i[0].size - 1]
-
     return densites
 
 def save_galaxies(galaxies, emplacements, densites):
@@ -232,14 +227,11 @@ def plot_galaxies(galaxies, coords, colors=np.array([])):
         c_y = u.quantity.Quantity([c.cartesian.y for g, c in zip(galaxies_disp, coords_disp) if g.type == 0])
         c_z = u.quantity.Quantity([c.cartesian.z for g, c in zip(galaxies_disp, coords_disp) if g.type == 0])
         ax.scatter(c_x, c_y, c_z, c='b', marker='.')
-
         print(len(c_x), " galaxies elliptiques")
-
         c_x = u.quantity.Quantity([c.cartesian.x for g, c in zip(galaxies_disp, coords_disp) if g.type == 1])
         c_y = u.quantity.Quantity([c.cartesian.y for g, c in zip(galaxies_disp, coords_disp) if g.type == 1])
         c_z = u.quantity.Quantity([c.cartesian.z for g, c in zip(galaxies_disp, coords_disp) if g.type == 1])
         ax.scatter(c_x, c_y, c_z, c='r', marker='.')
-
         print(len(c_x), " galaxies spirales")
 
     plt.show()
@@ -376,8 +368,12 @@ def main():
     #colors = np.array([k.logMass for k in galaxies])
     #colors = (colors - min(colors)) / (max(colors) - min(colors))
     """affichage du redshift"""
-    #l_redshift=[g.point[2] for g in galaxies]
-    #affichage_histogramme(l_redshift)
+    l_redshift=[g.point[2] for g in galaxies]
+    print(l_redshift)
+    affichage_histogramme(l_redshift)
+    l_redshift=disc_moy(l_redshift,5)
+    print("len=",max(l_redshift))
+    affichage_histogramme(l_redshift,[1,2,3,4,5,6,7,8,9,10])
     #colors = np.array()
     #colors = (colors - min(colors)) / (max(colors) - min(colors))
     #colors = abs(1-colors)
@@ -387,18 +383,47 @@ def main():
     """affichage du type morphologique"""
     #l_type=[k.type for k in galaxies]
     #affichage_histogramme(l_type)
-    colors = np.array(l_type)
+    #colors = np.array(l_type)
     #plot_galaxies(galaxies, coords, colors)
+
+def disc_quantils(liste_valeurs_propriete,nb_class):
+    """
+    Cette fonction prend en entrée une liste des valeurs d'une propriété pour toutes les galaxies
+    Elle discrétise avec les methode des quantils est renvoie une liste compris entre
+    0 et nb_class
+    """
+    liste_valeurs_propriete_cp=copy.deepcopy(liste_valeurs_propriete)
+    liste_valeurs_propriete_cp.sort()
+    l=[]
+    q=len(liste_valeurs_propriete_cp)//nb_class
+    for i in range(len(liste_valeurs_propriete)//nb_class*nb_class):#legere perte d'informations mais negligable
+        l.append(i//q)
+    return l
+
+def disc_moy(liste_valeurs_propriete,nb_class):
+    """
+    Cette fonction prend en entrée une liste des valeurs d'une propriété pour toutes les galaxies
+    Elle discrétise avec les methode des moyenne et l’écart-type est renvoie un liste
+    """
+    avg=np.mean(liste_valeurs_propriete)
+    std=np.std(liste_valeurs_propriete)
+    liste_valeurs_propriete_cp=copy.deepcopy(liste_valeurs_propriete)
+    bins=[]
+    i=-nb_class/2
+    while i<nb_class/2:
+        bi=avg+i*std
+        bins.append(bi)
+        i+=1
+    l=np.digitize(liste_valeurs_propriete_cp,np.array(bins))
+    return l
 
 def discretisation(liste_valeurs_propriete):
     """
     Cette fonction prend en entrée une liste des valeurs d'une propriété pour toutes les galaxies. Elle discrétise les valeurs et renvoie une liste contenant les valeurs discrétisées.
     """
-
     ## fonction à remplir
     # remplacer la ligne ci-dessous par la discrétisation
     liste_valeurs_propriete_discretisee = liste_valeurs_propriete
-
     return liste_valeurs_propriete_discretisee
 
 def affichage_histogramme(liste_valeurs_propriete, bins=50):
@@ -430,22 +455,18 @@ relations de cause à effet entre ces variables ?
 
 """
 
-#def calcule_distribution_proba(liste_tirages):
-"""
-    Cette fonction doit calculer la probabilité d'occurence p_i de chaque valeur i que peut prendre la variable.
-
-    Elle prend en entrée une liste (np.array) de valeurs générées lors de plusieurs tirages successifs sur la variable.
-    Ces valeurs sont représentées par des tuples. Ainsi, si la variable aléatoire est une combinaison de deux variables (Y,Z), les valeurs seront des tuples de 2 éléments (y,z).
-
-    Elle renvoie un tableau (np.array) contenant les probabilités p_i pour chaque valeur i.
-
-    Conseil : regardez cette page de documentation pour apprendre à créer des numpy.array de tuples : https://docs.scipy.org/doc/numpy-1.10.1/user/basics.rec.html
-    Conseil #2 : regardez la documentation de la fonction `numpy.unique`.
-"""
-
-#    #...
-
-#    return probas
+def calcule_distribution_proba(liste_tirages):
+    """
+    Cette fonction calcule la probabilité d'occurence p_i de chaque
+valeur i que peut prendre la variable. Elle prend en entrée une liste
+(np.array) de valeurs générées lors de plusieurs tirages successifs sur la variable.
+Ces valeurs sont représentées par des tuples. Ainsi, si la variable aléatoire est une
+combinaison de deux variables (Y,Z), les valeurs seront des tuples de 2 éléments (y,z).
+Elle renvoie un tableau (np.array) contenant les probabilités p_i pour chaque valeur i.
+    """
+    Univers, occurence = np.unique(liste_tirages, return_counts=True)
+    pi=Univers/occurence
+    return pi
 
 #def calcule_entropy(liste_probas):
 """
@@ -481,7 +502,7 @@ d'intéraction entre le type morphologique, l'emplacement, et chaque
 variable utilisée dans l'exercice 2. Vous aurez pour cela besoin de
 compléter la fonction `calcule_information_interaction` ci-dessous.
 
-Présentez et commentez les résultats. Peut-on conclure sur l'existence 
+Présentez et commentez les résultats. Peut-on conclure sur l'existence
 de relations de cause à effet entre ces variables ?
 
 """
