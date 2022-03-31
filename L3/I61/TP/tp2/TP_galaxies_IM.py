@@ -142,7 +142,6 @@ def select_cube(galaxies, radius=0):
                     and c.cartesian.y >= -100 * u.Mpc and c.cartesian.y <= 100 * u.Mpc\
                     and c.cartesian.z >= 5 * u.Mpc and c.cartesian.z <= 205 * u.Mpc:
                 galaxies_cube += [g]
-
     return galaxies_cube, galaxies_buffer
 
 def compute_densities(galaxies, catalog, radius):
@@ -354,8 +353,8 @@ def main():
     #colors = np.array(emplacements)
     #colors = (colors - min(colors)) / (max(colors) - min(colors))
     """affichage de l'emplacement discrétisé"""
-    #colors = np.array(emplacements)
-    #colors = (colors - min(colors)) / (max(colors) - min(colors))
+    colors = np.array(emplacements)
+    colors = (colors - min(colors)) / (max(colors) - min(colors))
     #for i in galaxies:
     #    print(i.age)
     """affichage de age"""
@@ -368,12 +367,15 @@ def main():
     #colors = np.array([k.logMass for k in galaxies])
     #colors = (colors - min(colors)) / (max(colors) - min(colors))
     """affichage du redshift"""
-    l_redshift=[g.point[2] for g in galaxies]
-    print(l_redshift)
-    affichage_histogramme(l_redshift)
-    l_redshift=disc_moy(l_redshift,5)
-    print("len=",max(l_redshift))
-    affichage_histogramme(l_redshift,[1,2,3,4,5,6,7,8,9,10])
+    #l_redshift=[g.point[2] for g in galaxies]
+#    double_proba=[]
+#    for i,j in zip(l_redshift,colors):
+#        double_proba.append((i,j))
+#    print(calcule_distribution_proba(double_proba))
+    #affichage_histogramme(l_redshift)
+    #l_redshift=disc_moy(l_redshift,5)
+    #print("len=",max(l_redshift))
+    #affichage_histogramme(l_redshift,[1,2,3,4,5,6,7,8,9,10])
     #colors = np.array()
     #colors = (colors - min(colors)) / (max(colors) - min(colors))
     #colors = abs(1-colors)
@@ -385,6 +387,12 @@ def main():
     #affichage_histogramme(l_type)
     #colors = np.array(l_type)
     #plot_galaxies(galaxies, coords, colors)
+    """Information D'interaction"""
+    l_type=[k.type for k in galaxies]
+    l_redshift=[g.point[2] for g in galaxies]
+    colors = np.array(emplacements)
+    colors = (colors - min(colors)) / (max(colors) - min(colors))
+    calcule_information_interaction(l_type,l_redshift,colors)
 
 def disc_quantils(liste_valeurs_propriete,nb_class):
     """
@@ -464,34 +472,59 @@ Ces valeurs sont représentées par des tuples. Ainsi, si la variable aléatoire
 combinaison de deux variables (Y,Z), les valeurs seront des tuples de 2 éléments (y,z).
 Elle renvoie un tableau (np.array) contenant les probabilités p_i pour chaque valeur i.
     """
-    Univers, occurence = np.unique(liste_tirages, return_counts=True)
-    pi=Univers/occurence
-    return pi
+    print(len(liste_tirages[0]))
+    Univers, occurence = np.unique(liste_tirages,axis=0,return_counts=True)
+    pi=occurence/(len(liste_tirages))
+    return sum(pi)
 
-#def calcule_entropy(liste_probas):
-"""
-    Cette fonction doit calculer l'entropie d'une variable aléatoire dont la distribution de probabilité est données dans la liste (np.array) liste_probas.
-
+def calcule_entropy(l_i):
+    """
+    Cette fonction calcule l'entropie d'une
+    variable aléatoire dont la distribution de probabilité est données
+    dans la liste (np.array) l_i
     Elle renvoie la valeur de l'entropie (float).
-"""
+    """
+    res=0
+    for i in l_i:
+        res+=i*np.log2(i)
+    return -res
 
-#    return H
+def join_entropy(l_i,l_j):
+    """
+    Calcule l'entropie jointe de deux array
+    """
+    join_i= np.histogram2d(l_i.reshape(-1),l_j.reshape(-1), bins=(256,256))[0]
+    flat_i= [j for i in join_i for j in i]
+    nb_occurence12=sum(flat_i)
+    l_i=[i/nb_occurence12 for i in flat_i]
+    j_entrop=calcule_entropy(l_i)
+    return j_entrop
 
-#def calcule_NMI(liste_tirages_varX, liste_tirages_varY):
-"""
+def join_3entropy(l_i,l_j,l_k):
+    """
+    Calcule l'entropie jointe de trois array
+    """
+    join_i= l_i[:,None] * l_j[None,:] *l_k[None,:]
+    flat_i= [j for i in join_i for j in i]
+    nb_occurence12=sum(flat_i)
+    l_i=[i/nb_occurence12 for i in flat_i]
+    j_entrop=calcule_entropy(l_i)
+    return j_entrop
+
+def calcule_NMI(liste_tirages_varX, liste_tirages_varY):
+    """
     Cette fonction doit calculer l'information mutuelle normalisée entre deux variables X et Y.
-
     Elle prend en entrée, pour chaque variable, une liste de valeurs générées lors de plusieurs tirages successifs sur la variable.
     Remarques : Les deux listes doivent avoir la même taille. liste_tirages_varX[i] et liste_tirages_varY[i] sont les valeurs prises simultanément par les variables X et Y lors du tirage sur la galaxie i.
-
     La fonction renvoie la valeur de l'information mutuelle normalisée (NMI) (float).
-
     Conseil : Il existe plusieurs formules (dont plusieurs vues en cours) pour calculer l'IM. La formule IM(X;Y) = H(X) + H(Y) - H(X,Y) est probablement la plus simple à implémenter en Python.
-"""
-
-#    #...
-
-#    return NMI
+    """
+    HC=calcule_entropy(liste_tirages_varX)
+    HY=calcule_entropy(liste_tirages_varY)
+    HCY=join_entropy(liste_tirages_varX,liste_tirages_varY)
+    IM=HC+HY-HCY
+    NMI=2*IM/(HC+HY)
+    return NMI
 
 """
 EXERCICE 3 : Calcul des informations d'intéraction
@@ -507,19 +540,26 @@ de relations de cause à effet entre ces variables ?
 
 """
 
-#def calcule_information_interaction(liste_tirages_varX, liste_tirages_varY, liste_tirages_varZ):
-"""
+def calcule_information_interaction(liste_tirages_varX, liste_tirages_varY, liste_tirages_varZ):
+    """
     Cette fonction doit calculer l'information d'intéraction entre trois variables X, Y, et Z.
-
     Elle prend en entrée, pour chaque variable, une liste de valeurs générées lors de plusieurs tirages successifs sur la variable.
     Remarques : Les trois listes doivent avoir la même taille. liste_tirages_varX[i], liste_tirages_varY[i], et liste_tirages_varZ[i] sont les valeurs prises simultanément par les variables X, Y, et Z lors du tirage joint i.
-
     La fonction renvoie la valeur de l'information d'intéraction (float).
-
     Remarque : Il existe plusieurs formules (dont plusieurs vues en cours) pour calculer l'IM. La formule basée sur l'entropie des sous-ensembles de variables est probablement la plus simple à implémenter ici.
-"""
-
-#    return II
+    """
+    liste_tirages_varX=np.asarray(liste_tirages_varX)
+    liste_tirages_varY=np.asarray(liste_tirages_varY)
+    liste_tirages_varZ=np.asarray(liste_tirages_varZ)
+    HX=calcule_entropy(liste_tirages_varX)
+    HY=calcule_entropy(liste_tirages_varY)
+    HZ=calcule_entropy(liste_tirages_varZ)
+    HXY=join_entropy(liste_tirages_varY,liste_tirages_varX)
+    HYZ=join_entropy(liste_tirages_varY,liste_tirages_varZ)
+    HXZ=join_entropy(liste_tirages_varX,liste_tirages_varZ)
+    HXYZ=join_3entropy(liste_tirages_varX,liste_tirages_varZ,liste_tirages_varY)
+    II=-(HX+HY+HZ)+HXY+HYZ+HXZ-HXYZ
+    return II
 
 """
 EXERCICE 4 : Exploration facultative
