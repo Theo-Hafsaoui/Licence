@@ -1,0 +1,111 @@
+\documentclass[11pt,a4paper,French]{article}
+\usepackage{subfiles}
+\usepackage{float}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pifont}
+\usepackage[french]{babel}
+%%Mon clavier est en qwerty, pas d'accent donc pour moi
+\newcommand{\e}{\'{e}}
+\newcommand{\h}{Hoare}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\usetikzlibrary{trees}
+%%Header
+%TODO
+  %\usepackage{fancyhdr}
+  %\pagestyle{fancy}
+%%
+\usepackage{xcolor}
+\newtheorem{definition}{Definition}[section]
+\usepackage{titlesec}
+\usepackage{pagecolor,lipsum}
+%%Nordic color
+  \definecolor{Nblack}{HTML}{3b4252}
+  \definecolor{NBLACK}{HTML}{2e3440}
+  \definecolor{Nwhite}{HTML}{eceff4}
+  \definecolor{nwhite}{HTML}{e5e9f0}
+  \definecolor{Nblue}{HTML}{5e81ac}
+  \definecolor{Nred}{HTML}{bf616a}
+  \definecolor{nred}{HTML}{d08770}
+  \definecolor{Nurl}{HTML}{8fbcbb}
+  \definecolor{nblue}{HTML}{81a1c1}
+  \let\oldtextbf\textbf
+  \renewcommand{\textbf}[1]{\textcolor{NBLACK}{\oldtextbf{#1}}}
+  \makeatletter
+  \newcommand{\globalcolor}[1]{%
+    \color{#1}\global\let\default@color\current@color
+  }
+  \makeatother
+  \AtBeginDocument{\globalcolor{Nblack}}
+  \titleformat{\section}
+  {\color{Nblue}\normalfont\Large\bfseries}
+  {\color{Nblue}\thesection}{1em}{}
+  \titleformat{\subsection}
+  {\color{nblue}\normalfont\large\bfseries}
+  {\color{nblue}\thesubsection}{1em}{}
+  \hypersetup{
+      colorlinks=true,
+      linkcolor=nblue,
+      filecolor=magenta,      
+      urlcolor=cyan,
+      pdftitle={Overleaf Example},
+      pdfpagemode=FullScreen,
+      }
+\lstdefinestyle{C}{
+    backgroundcolor=\color{nwhite},   
+    commentstyle=\color{green},
+    keywordstyle=\color{nred},
+    frame=single
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+\rhead{\color{nblue}Hamming}
+\lhead{\color{nblue}I61}
+\rfoot{Page \thepage}
+\newtcbtheorem[number within=section]{mytheo}{Propri\e t\e}%
+{colback=Nblue!5,colframe=Nblue!35!NBLACK,fonttitle=\bfseries}{th}
+%%
+\begin{document}
+\pagecolor{Nwhite}
+%Title Page of Hoar
+\begin{center}
+  \vspace*{1cm}
+  \Huge \textbf{I61 : Th. Information}
+
+  \Large{Tp3}
+
+  \large{Code de hamming}
+\\
+  \noindent
+  \vfill
+  \makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
+{\huge \color{Nblue}{Hafsaoui Theo, Tom Demange}}
+\vskip\baselineskip
+\noindent
+\color{nblue}\today
+\end{center}
+%End title Page of Hoar
+
+  \subfile{Intro}
+
+\end{document}

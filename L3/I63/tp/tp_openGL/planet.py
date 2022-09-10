@@ -46,7 +46,6 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     glPushMatrix()
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, yellow)
     gluSphere(quadric, 1.0, 2000, 1600)
     glRotatef(year, 0.0, 1.0, 0.0)
     glTranslatef(2.0, 0.0, 0.0)

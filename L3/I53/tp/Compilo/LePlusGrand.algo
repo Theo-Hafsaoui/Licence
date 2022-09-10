@@ -1,0 +1,14 @@
+ALGO LePlusGrand
+# Algo qui renvoie l'entier le plus grand des deux  entree
+ENTREE A B
+DEBUT
+	SI A<B ALORS
+		AFFICHER B
+	FSI
+	SI B<A ALORS
+		AFFICHER A
+	FSI
+	SI A=B ALORS
+		AFFICHER 0
+	FSI
+FIN

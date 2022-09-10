@@ -32,6 +32,7 @@ int bruite(int octet, float p , int k){
   affiche_binaire(octet);
   return octet;
 }
+
 int** mots(uint k){
   double po=pow(2, k);
   int **m_res=calloc(po, sizeof(uint));

@@ -1,0 +1,15 @@
+ALGO exemple
+# le épique
+ENTREE A
+DEBUT
+    VAR o
+    o <- A
+    AFFICHER o
+    SI o<10 ALORS
+        o <- o+1
+        AFFICHER o
+    SINON
+        o <- o - 1
+        AFFICHER o
+    FSI
+FIN

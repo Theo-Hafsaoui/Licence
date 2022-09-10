@@ -1,0 +1,22 @@
+ALGO comparaison
+# teste des comparaisons
+DEBUT
+	VAR x
+	x <- 2
+	VAR m
+	VAR n
+	VAR o
+	VAR p
+	VAR q
+	m <- x = 2
+	n <- x > 2
+	o <- x < 2
+	p <- x >= 2
+	q <- x <= 2
+	AFFICHER x
+	AFFICHER m
+	AFFICHER n
+	AFFICHER o
+	AFFICHER p
+	AFFICHER q
+FIN

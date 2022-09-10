@@ -1,0 +1,2 @@
+\babel@toc {french}{}\relax 
+\contentsline {subsubsection}{\numberline {0.0.1}ex0:}{1}{subsubsection.0.0.1}%

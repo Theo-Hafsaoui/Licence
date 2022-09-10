@@ -1,0 +1,52 @@
+ex1/
+  1/la pariter d'entre sortie d'une droite perpendiculaire a l'axe x
+    ou l'angle superieur a 180
+
+2
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Algorithme 1 : Convexiter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+entree: liste de couple de coordoner
+output:boolean
+donner: boolean c
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  pour c de la liste:
+    C=scanline(c)
+    if C:
+      return false
+  return C
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Algorithme 2 : scanline
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+entree: couple
+output:boolean
+donner: 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   pour chaque pixel de la scanline:
+    somme=0
+    si sorti ou entrer de segment AND pas un point:
+      somme++
+    C=somme>1
+  return C
+
+O(n)si in est theta de 1
+    
+ex3/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Algorithme 1 : triangulation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+entree: liste de couple de coordoner l_s
+output:liste de triplet de couple
+donnees: boolean c
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  racine=l_s[0][0] 
+  l_triplet=[]
+  last=s[0][1]
+  pour chaque sommet s de l_s sans les deux premier:
+    l_triplet+=[(racine,last,s)]
+    last=s
+  renvoyer l_triplet
+    
+    

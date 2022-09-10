@@ -137,8 +137,6 @@ void expo(mpz_t rex,mpz_t a,mpz_t b,mpz_t m){
     mpz_clear(mod);
     
 }
-
-void txt2int(mpz_t Br){
 /*
  * txt2int
  * --------------------
@@ -146,6 +144,8 @@ void txt2int(mpz_t Br){
  * contenue dans un mpz.
  * 
  */
+
+void txt2int(mpz_t Br){
     mpz_t i,temp;
     mpz_init(temp);
     mpz_init_set_ui (i, 1);

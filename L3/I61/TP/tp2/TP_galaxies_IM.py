@@ -1,3 +1,4 @@
+from logging import raiseExceptions
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
@@ -350,8 +351,8 @@ def main():
     galaxies, coords, emplacements, densites = prepare_galaxies()
     print("galaxies chargées")
     #"""affichage de l'emplacement discrétisé"""
-    #colors = np.array(emplacements)
-    #colors = (colors - min(colors)) / (max(colors) - min(colors))
+    #emp = np.array(emplacements)
+    #emp = (emp - min(emp)) / (max(emp) - min(emp))
     """affichage de l'emplacement discrétisé"""
     colors = np.array(emplacements)
     colors = (colors - min(colors)) / (max(colors) - min(colors))
@@ -364,14 +365,14 @@ def main():
 #    colors = np.array([k.metallicity for k in galaxies])
 #    colors = (colors - min(colors)) / (max(colors) - min(colors))
     """affichage de masse"""
-    #colors = np.array([k.logMass for k in galaxies])
-    #colors = (colors - min(colors)) / (max(colors) - min(colors))
+    #mass = np.array([k.logMass for k in galaxies])
+    #mass = (colors - min(colors)) / (max(colors) - min(colors))
     """affichage du redshift"""
     #l_redshift=[g.point[2] for g in galaxies]
-#    double_proba=[]
-#    for i,j in zip(l_redshift,colors):
-#        double_proba.append((i,j))
-#    print(calcule_distribution_proba(double_proba))
+    #double_proba=[]
+    #for i,j,k in zip(l_redshift,colors,mass):
+    #    double_proba.append((i,j,k))
+    #print(calcule_entropy(calcule_distribution_proba(double_proba)))
     #affichage_histogramme(l_redshift)
     #l_redshift=disc_moy(l_redshift,5)
     #print("len=",max(l_redshift))
@@ -387,12 +388,33 @@ def main():
     #affichage_histogramme(l_type)
     #colors = np.array(l_type)
     #plot_galaxies(galaxies, coords, colors)
-    """Information D'interaction"""
-    l_type=[k.type for k in galaxies]
-    l_redshift=[g.point[2] for g in galaxies]
-    colors = np.array(emplacements)
-    colors = (colors - min(colors)) / (max(colors) - min(colors))
-    calcule_information_interaction(l_type,l_redshift,colors)
+    #l_type=[k.type for k in galaxies]
+    #l_redshift=[g.point[2] for g in galaxies]
+    #colors = np.array(emplacements)
+    #colors = (colors - min(colors)) / (max(colors) - min(colors))
+    #print(calcule_information_interaction(l_type,l_redshift,colors))
+#######################################################################################################################################
+#EX 2
+    #disc_red=[g.point[2] for g in galaxies]
+    #morph=[k.type+1 for k in galaxies]
+    #print("NMI avec red et morph=",calcule_NMI(disc_red,morph))
+#######################################################################################################################################
+#EX 3
+    met = np.array([k.metallicity for k in galaxies])
+    met = (met - min(met)) / (max(met) - min(met))
+    mass = np.array([k.logMass for k in galaxies])
+    mass = (mass - min(mass)) / (max(mass) - min(mass))
+    disc_red=[g.point[2] for g in galaxies]
+    morph=[k.type+1 for k in galaxies]
+    emp = np.array(emplacements)
+    emp = (emp - min(emp)) / (max(emp) - min(emp))
+    ds = np.array(densites)
+    ds = (ds - min(ds)) / (max(ds) - min(ds))
+    print("red II=",calcule_information_interaction(emp,disc_red,morph))
+    print("mass II=",calcule_information_interaction(emp,mass,morph))
+    print("dens II=",calcule_information_interaction(emp,ds,morph))
+    print("met II=",calcule_information_interaction(emp,met,morph))
+
 
 def disc_quantils(liste_valeurs_propriete,nb_class):
     """
@@ -475,7 +497,7 @@ Elle renvoie un tableau (np.array) contenant les probabilités p_i pour chaque v
     print(len(liste_tirages[0]))
     Univers, occurence = np.unique(liste_tirages,axis=0,return_counts=True)
     pi=occurence/(len(liste_tirages))
-    return sum(pi)
+    return pi
 
 def calcule_entropy(l_i):
     """
@@ -486,30 +508,25 @@ def calcule_entropy(l_i):
     """
     res=0
     for i in l_i:
-        res+=i*np.log2(i)
+        if i>0:
+            res+=i*np.log2(i)
     return -res
 
-def join_entropy(l_i,l_j):
+def join_entropy(nb,l_i,l_j,l_k=None):
     """
-    Calcule l'entropie jointe de deux array
+    Calcule l'entropie jointe
     """
-    join_i= np.histogram2d(l_i.reshape(-1),l_j.reshape(-1), bins=(256,256))[0]
-    flat_i= [j for i in join_i for j in i]
-    nb_occurence12=sum(flat_i)
-    l_i=[i/nb_occurence12 for i in flat_i]
-    j_entrop=calcule_entropy(l_i)
-    return j_entrop
+    l_i=[]
+    if nb==3:
+        for i,j,k in zip(l_i,l_j,l_k):
+            l_i.append((i,j,k))
+    elif nb==2:
+        for i,j in zip(l_i,l_j):
+            l_i.append((i,j))
+    else:
+        print("not the right nb of parameter")
+    return calcule_entropy(l_i)
 
-def join_3entropy(l_i,l_j,l_k):
-    """
-    Calcule l'entropie jointe de trois array
-    """
-    join_i= l_i[:,None] * l_j[None,:] *l_k[None,:]
-    flat_i= [j for i in join_i for j in i]
-    nb_occurence12=sum(flat_i)
-    l_i=[i/nb_occurence12 for i in flat_i]
-    j_entrop=calcule_entropy(l_i)
-    return j_entrop
 
 def calcule_NMI(liste_tirages_varX, liste_tirages_varY):
     """
@@ -521,7 +538,7 @@ def calcule_NMI(liste_tirages_varX, liste_tirages_varY):
     """
     HC=calcule_entropy(liste_tirages_varX)
     HY=calcule_entropy(liste_tirages_varY)
-    HCY=join_entropy(liste_tirages_varX,liste_tirages_varY)
+    HCY=join_entropy(2,liste_tirages_varX,liste_tirages_varY)
     IM=HC+HY-HCY
     NMI=2*IM/(HC+HY)
     return NMI
@@ -554,10 +571,10 @@ def calcule_information_interaction(liste_tirages_varX, liste_tirages_varY, list
     HX=calcule_entropy(liste_tirages_varX)
     HY=calcule_entropy(liste_tirages_varY)
     HZ=calcule_entropy(liste_tirages_varZ)
-    HXY=join_entropy(liste_tirages_varY,liste_tirages_varX)
-    HYZ=join_entropy(liste_tirages_varY,liste_tirages_varZ)
-    HXZ=join_entropy(liste_tirages_varX,liste_tirages_varZ)
-    HXYZ=join_3entropy(liste_tirages_varX,liste_tirages_varZ,liste_tirages_varY)
+    HXY=join_entropy(2,liste_tirages_varX,liste_tirages_varY)
+    HYZ=join_entropy(2,liste_tirages_varY,liste_tirages_varZ)
+    HXZ=join_entropy(2,liste_tirages_varX,liste_tirages_varZ)
+    HXYZ=join_entropy(3,liste_tirages_varX,liste_tirages_varY,liste_tirages_varZ)
     II=-(HX+HY+HZ)+HXY+HYZ+HXZ-HXYZ
     return II
 
